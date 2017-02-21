@@ -1,0 +1,235 @@
+2016-09-16 07:56:51,575 ERROR [Worker-2] - System.err - [org.eclipse.debug.core] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.debug.core.model.IDebugModelProvider
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-16 07:58:40,364  WARN [ModalContext] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2016-09-16 07:58:40,364  WARN [ModalContext] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2016-09-16 07:58:40,388 ERROR [ModalContext] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.launching.JREContainerInitializer
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project GoodStuff runs on platform default installation.
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2016-09-16 07:58:40,780  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2016-09-16 07:58:40,888  WARN [ModalContext] - ScalaProject - Project AuctionHouse1 has platform default sourceLevel.
+2016-09-16 07:58:40,888  WARN [ModalContext] - ScalaProject - Project AuctionHouse1 runs on platform default installation.
+2016-09-16 07:58:40,896  WARN [ModalContext] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-16 07:58:40,904  WARN [ModalContext] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-16 07:58:40,912  WARN [ModalContext] - ScalaProject - Project Football1 has platform default sourceLevel.
+2016-09-16 07:58:40,912  WARN [ModalContext] - ScalaProject - Project Football1 runs on platform default installation.
+2016-09-16 07:58:41,079  WARN [ModalContext] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2016-09-16 07:58:41,079  WARN [ModalContext] - ScalaProject - Project GoodStuff runs on platform default installation.
+2016-09-16 07:58:41,111  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2016-09-16 07:58:41,111  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2016-09-16 07:58:41,135  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-16 07:58:41,135  WARN [ModalContext] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-16 07:58:41,156  WARN [ModalContext] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2016-09-16 07:58:41,156  WARN [ModalContext] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2016-09-16 07:58:41,164  WARN [ModalContext] - ScalaProject - Project Odds has platform default sourceLevel.
+2016-09-16 07:58:41,164  WARN [ModalContext] - ScalaProject - Project Odds runs on platform default installation.
+2016-09-16 07:58:41,972  WARN [Worker-0] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2016-09-16 07:58:41,972  WARN [Worker-0] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2016-09-16 07:58:46,924  WARN [Java indexing] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2016-09-16 07:58:46,924  WARN [Java indexing] - ScalaProject - Project GoodStuff runs on platform default installation.
+2016-09-16 07:58:48,366  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2016-09-16 07:58:48,366  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2016-09-16 07:58:49,687  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-16 07:58:49,687  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-16 07:58:50,682  WARN [Java indexing] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2016-09-16 07:58:50,682  WARN [Java indexing] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2016-09-16 07:59:00,231  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-16 07:59:00,231  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-16 07:59:01,759  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2016-09-16 07:59:01,767  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2016-09-16 07:59:02,875  WARN [Worker-0] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2016-09-16 07:59:02,875  WARN [Worker-0] - ScalaProject - Project GoodStuff runs on platform default installation.
+2016-09-16 07:59:15,750 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaLineBreakpoint
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-16 07:59:38,396  WARN [main] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-16 07:59:38,396  WARN [main] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-16 07:59:40,977 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-16 08:00:09,439 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 11:48:31,161 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 11:48:31,209 ERROR [main] - System.err - [org.eclipse.debug.core] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.debug.core.ILaunchesListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 11:48:31,845  WARN [main] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-17 11:48:31,845  WARN [main] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-17 11:48:31,849  WARN [main] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2016-09-17 11:48:31,850  WARN [main] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2016-09-17 11:48:31,912  WARN [main] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2016-09-17 11:48:31,912  WARN [main] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2016-09-17 11:48:35,222  WARN [main] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2016-09-17 11:48:35,222  WARN [main] - ScalaProject - Project GoodStuff runs on platform default installation.
+2016-09-17 11:48:35,224  WARN [main] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2016-09-17 11:48:35,224  WARN [main] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2016-09-17 11:48:35,817 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 11:48:35,873 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 12:10:26,660  WARN [ModalContext] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:10:26,660  WARN [ModalContext] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:10:26,944  WARN [Worker-21] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:10:26,944  WARN [Worker-21] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:11:22,837  WARN [main] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:11:22,837  WARN [main] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:11:22,961  WARN [Worker-21] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:11:22,961  WARN [Worker-21] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:11:40,698 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2016-09-17 12:11:43,484  WARN [Worker-17] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:11:43,484  WARN [Worker-17] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:13:05,645  WARN [Worker-23] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:13:05,646  WARN [Worker-23] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:17:17,983  WARN [Worker-20] - ScalaProject - Project Ave has platform default sourceLevel.
+2016-09-17 12:17:17,983  WARN [Worker-20] - ScalaProject - Project Ave runs on platform default installation.
+2016-09-17 12:18:45,468  WARN [ModalContext] - ScalaProject - Project Odds has platform default sourceLevel.
+2016-09-17 12:18:45,469  WARN [ModalContext] - ScalaProject - Project Odds runs on platform default installation.
+2016-09-17 12:18:45,482  WARN [ModalContext] - ScalaProject - Project Odds has platform default sourceLevel.
+2016-09-17 12:18:45,482  WARN [ModalContext] - ScalaProject - Project Odds runs on platform default installation.
+2016-09-17 12:18:45,643  WARN [Worker-27] - ScalaProject - Project Odds has platform default sourceLevel.
+2016-09-17 12:18:45,643  WARN [Worker-27] - ScalaProject - Project Odds runs on platform default installation.
+2016-09-17 12:18:46,881  WARN [Java indexing] - ScalaProject - Project Odds has platform default sourceLevel.
+2016-09-17 12:18:46,881  WARN [Java indexing] - ScalaProject - Project Odds runs on platform default installation.
+2017-02-21 10:14:47,601  WARN [Worker-2] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2017-02-21 10:14:47,602  WARN [Worker-2] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2017-02-21 10:14:47,605  WARN [Worker-2] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2017-02-21 10:14:47,606  WARN [Worker-2] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2017-02-21 10:14:47,632  WARN [Worker-2] - ScalaProject - Project Ave has platform default sourceLevel.
+2017-02-21 10:14:47,632  WARN [Worker-2] - ScalaProject - Project Ave runs on platform default installation.
+2017-02-21 10:14:47,633  WARN [Worker-2] - ScalaProject - Project Odds has platform default sourceLevel.
+2017-02-21 10:14:47,633  WARN [Worker-2] - ScalaProject - Project Odds runs on platform default installation.
+2017-02-21 10:14:47,633  WARN [Worker-2] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2017-02-21 10:14:47,633  WARN [Worker-2] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2017-02-21 10:14:47,667  WARN [Worker-2] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2017-02-21 10:14:47,667  WARN [Worker-2] - ScalaProject - Project GoodStuff runs on platform default installation.
+2017-02-21 10:14:48,113  WARN [Worker-2] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2017-02-21 10:14:48,113  WARN [Worker-2] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2017-02-21 10:15:55,313  WARN [main] - ScalaProject - Project Ave has platform default sourceLevel.
+2017-02-21 10:15:55,313  WARN [main] - ScalaProject - Project Ave runs on platform default installation.
+2017-02-21 10:15:59,780  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2017-02-21 10:15:59,780  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2017-02-21 10:15:59,813  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2017-02-21 10:15:59,813  WARN [Worker-0] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2017-02-21 10:15:59,826  WARN [Worker-0] - ScalaProject - Project Ave has platform default sourceLevel.
+2017-02-21 10:15:59,826  WARN [Worker-0] - ScalaProject - Project Ave runs on platform default installation.
+2017-02-21 10:15:59,854  WARN [Worker-0] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2017-02-21 10:15:59,855  WARN [Worker-0] - ScalaProject - Project GoodStuff runs on platform default installation.
+2017-02-21 10:15:59,865  WARN [Worker-0] - ScalaProject - Project Odds has platform default sourceLevel.
+2017-02-21 10:15:59,865  WARN [Worker-0] - ScalaProject - Project Odds runs on platform default installation.
+2017-02-21 10:16:00,115  WARN [Worker-12] - ScalaProject - Project Ave has platform default sourceLevel.
+2017-02-21 10:16:00,115  WARN [Worker-12] - ScalaProject - Project Ave runs on platform default installation.
+2017-02-21 10:16:00,747  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ScalaProject - Project Ave has platform default sourceLevel.
+2017-02-21 10:16:00,747  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ScalaProject - Project Ave runs on platform default installation.
+2017-02-21 10:16:04,527  WARN [Worker-12] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2017-02-21 10:16:04,527  WARN [Worker-12] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2017-02-21 10:16:14,809  WARN [Java indexing] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2017-02-21 10:16:14,810  WARN [Java indexing] - ScalaProject - Project GoodStuff runs on platform default installation.
+2017-02-21 10:16:14,834  WARN [Worker-12] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2017-02-21 10:16:14,834  WARN [Worker-12] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2017-02-21 10:16:15,431  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2017-02-21 10:16:15,432  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2017-02-21 10:16:15,854  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros2 has platform default sourceLevel.
+2017-02-21 10:16:15,854  WARN [Java indexing] - ScalaProject - Project KokeilujaKierros2 runs on platform default installation.
+2017-02-21 10:16:16,455  WARN [Worker-12] - ScalaProject - Project KokeilujaKierros1 has platform default sourceLevel.
+2017-02-21 10:16:16,456  WARN [Worker-12] - ScalaProject - Project KokeilujaKierros1 runs on platform default installation.
+2017-02-21 10:16:16,469  WARN [Java indexing] - ScalaProject - Project O1Yleiset has platform default sourceLevel.
+2017-02-21 10:16:16,469  WARN [Java indexing] - ScalaProject - Project O1Yleiset runs on platform default installation.
+2017-02-21 10:16:17,306  WARN [Java indexing] - ScalaProject - Project Odds has platform default sourceLevel.
+2017-02-21 10:16:17,306  WARN [Java indexing] - ScalaProject - Project Odds runs on platform default installation.
+2017-02-21 10:16:18,032  WARN [Worker-12] - ScalaProject - Project GoodStuff has platform default sourceLevel.
+2017-02-21 10:16:18,032  WARN [Worker-12] - ScalaProject - Project GoodStuff runs on platform default installation.
+2017-02-21 10:16:19,665  WARN [Worker-12] - ScalaProject - Project Odds has platform default sourceLevel.
+2017-02-21 10:16:19,665  WARN [Worker-12] - ScalaProject - Project Odds runs on platform default installation.
+2017-02-21 10:16:21,092  WARN [ModalContext] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:16:21,093  WARN [ModalContext] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:16:21,123  WARN [ModalContext] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:16:21,123  WARN [ModalContext] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:16:21,290  WARN [Worker-10] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:16:21,290  WARN [Worker-10] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:16:22,821  WARN [Java indexing] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:16:22,821  WARN [Java indexing] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:16:26,261 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2017-02-21 10:16:26,336 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2017-02-21 10:21:39,498 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2017-02-21 10:21:56,158  WARN [Worker-6] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:21:56,159  WARN [Worker-6] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:25:17,041  WARN [Worker-24] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:25:17,041  WARN [Worker-24] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:25:50,422  WARN [Worker-23] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:25:50,422  WARN [Worker-23] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:31:53,150  WARN [Worker-34] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:31:53,150  WARN [Worker-34] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:32:03,600  WARN [Worker-33] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:32:03,600  WARN [Worker-33] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:32:30,814  WARN [Worker-35] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:32:30,814  WARN [Worker-35] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:37:16,157  WARN [Worker-33] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:37:16,158  WARN [Worker-33] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:37:26,645  WARN [Worker-38] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:37:26,645  WARN [Worker-38] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:38:01,572  WARN [Worker-39] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:38:01,572  WARN [Worker-39] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:38:04,116  WARN [Worker-33] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:38:04,116  WARN [Worker-33] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:38:52,324  WARN [Worker-39] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:38:52,324  WARN [Worker-39] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:40:34,700  WARN [Worker-24] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:40:34,701  WARN [Worker-24] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:40:41,954  WARN [Worker-39] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:40:41,954  WARN [Worker-39] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:41:40,875  WARN [Worker-38] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:41:40,875  WARN [Worker-38] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:52:15,991  WARN [Worker-40] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:52:15,991  WARN [Worker-40] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:52:40,735  WARN [Worker-38] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:52:40,735  WARN [Worker-38] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:53:00,510  WARN [Worker-42] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:53:00,510  WARN [Worker-42] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:53:13,031  WARN [Worker-42] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:53:13,031  WARN [Worker-42] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-21 10:53:20,575  WARN [Worker-43] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-21 10:53:20,575  WARN [Worker-43] - ScalaProject - Project r1-sequences runs on platform default installation.
