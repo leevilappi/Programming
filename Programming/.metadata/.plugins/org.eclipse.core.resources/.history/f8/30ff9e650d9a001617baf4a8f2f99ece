@@ -1,0 +1,15 @@
+package o1.train
+
+object TrainSittingCarTest extends App{
+  
+  val SC = new SittingCar(6, 5)
+  
+  val places = "abcdef"
+  
+  println("Number of places: " + SC.numberOfPlaces)
+  println("Number of free places: " + SC.numberOfFreePlaces)
+  println("Fullness: " + SC.fullness)
+
+  SC.reservePlace(1, places(0))
+  
+}

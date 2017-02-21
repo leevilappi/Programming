@@ -1,0 +1,808 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>RobotWorld - o1.robots.RobotWorld</title>
+          <meta name="description" content="RobotWorld - o1.robots.RobotWorld" />
+          <meta name="keywords" content="RobotWorld o1.robots.RobotWorld" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'o1.robots.RobotWorld';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body onload="/* Customizations for CSE-A1110: */ /* hide classtags: */ $('span.symbol span.params:contains(\'ClassTag\')').css('display', 'none');  /* fix style to accommodate long parameter names: */ $('dl.paramcmts > dd').css('margin-left', '110px'); /* pretend that toString has no parameter list: */ $('a[id=\'toString():String\']').closest('li').find('h4.signature span.symbol span.params').css('display', 'none'); /* hide most UI packages by default (needs improvement): */ $('div#tpl ol.packages li.pack a.tplshow').each(function() { if ($(this).text().match(/o1..*ui/) && $(this).text().match(/(RandomText|GoodStuff)/) == null) $(this).closest('li.pack').find('a.packhide').trigger('click') }); /* hide all inherited App stuff by default: */ $('ol#linearization').find('li').each(function() { if ($(this).text() == 'App' || $(this).text() == 'SimpleSwingApplication') $(this).closest('ol#linearization').find('li.in').trigger('click')  }); " class="type">
+      <div id="definition">
+        <img alt="Class" src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="o1">o1</a>.<a href="package.html" class="extype" name="o1.robots">robots</a></p>
+        <h1>RobotWorld</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="o1.robots">package robots</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RobotWorld</span><span class="result"> extends <a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a>[<a href="Square.html" class="extype" name="o1.robots.Square">Square</a>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An instance of the class <code>RobotWorld</code> represents a two dimensional world that
+can be inhabited by virtual robots. This kind of &quot;robot world&quot; is a <code>Grid</code> whose
+elements are <code>Square</code> objects.</p><p>Robots -- <code>RobotBody</code> objects -- can be added to the robot world, and the robot
+world object maintains a robot listing which allows robots to take their turns
+in a round-robin fashion. Apart from robots, a robot world can also contain walls,
+and indeed is bounded by walls on all sides: all the edge squares of
+all robot worlds are always unpassable by robots.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="Square.html" class="extype" name="o1.robots.Square">Square</a></p></span><span class="cmt"><p><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">o1.grid.Grid</a></p></span></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a>[<a href="Square.html" class="extype" name="o1.robots.Square">Square</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="o1.robots.RobotWorld"><span>RobotWorld</span></li><li class="in" name="o1.grid.Grid"><span>Grid</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="o1.robots.RobotWorld#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(floorWidth:Int,floorHeight:Int):o1.robots.RobotWorld"></a>
+      <a id="&lt;init&gt;:RobotWorld"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RobotWorld</span><span class="params">(<span name="floorWidth">floorWidth: <span class="extype" name="scala.Int">Int</span></span>, <span name="floorHeight">floorHeight: <span class="extype" name="scala.Int">Int</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@&lt;init&gt;(floorWidth:Int,floorHeight:Int):o1.robots.RobotWorld" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">floorWidth</dt><dd class="cmt"><p>the width of the robot world, in squares, <i>in addition to the walls on both sides</i>. The total width of the grid will be two plus this number.</p></dd><dt class="param">floorHeight</dt><dd class="cmt"><p>the height of the robot world, in squares, <i>in addition to the walls at the top and at the bottom</i>. The total height of the grid will be two plus this number.</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="o1.robots.RobotWorld#addRobot" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addRobot(initialLocation:o1.grid.Coords,initialFacing:o1.grid.Direction):o1.robots.RobotBody"></a>
+      <a id="addRobot(Coords,Direction):RobotBody"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addRobot</span><span class="params">(<span name="initialLocation">initialLocation: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>, <span name="initialFacing">initialFacing: <a href="../grid/Direction.html" class="extype" name="o1.grid.Direction">Direction</a></span>)</span><span class="result">: <a href="RobotBody.html" class="extype" name="o1.robots.RobotBody">RobotBody</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@addRobot(initialLocation:o1.grid.Coords,initialFacing:o1.grid.Direction):o1.robots.RobotBody" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a new robot into this robot world.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new robot into this robot world. The newly created robot body does
+not yet have a brain.</p><p>This method is responsible for several related things: creating the robot (body), adding
+the robot to the list of robots in this world (so it will get a turn to act), and
+informing the robot's initial square that the robot is now there.
+</p></div><dl class="paramcmts block"><dt class="param">initialLocation</dt><dd class="cmt"><p>the initial location of the new robot in this world. This method assumes that <code>location</code> points to an empty square.</p></dd><dt class="param">initialFacing</dt><dd class="cmt"><p>the direction that the robot is initially facing in</p></dd><dt>returns</dt><dd class="cmt"><p>the newly created robot body, which has been placed in the indicated square</p></dd></dl></div>
+    </li><li name="o1.robots.RobotWorld#addWall" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addWall(location:o1.grid.Coords):Unit"></a>
+      <a id="addWall(Coords):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addWall</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@addWall(location:o1.grid.Coords):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Marks a square in this robot world as being an unpassable wall square.</p><div class="fullcomment"><div class="comment cmt"><p>Marks a square in this robot world as being an unpassable wall square. This method
+assumes that the location of the wall, given as a parameter, points to an empty square.</p></div></div>
+    </li><li name="o1.robots.RobotWorld#advanceFullTurn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="advanceFullTurn():Unit"></a>
+      <a id="advanceFullTurn():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">advanceFullTurn</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@advanceFullTurn():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Causes all the robots in the world to take a turn, starting with the one whose turn it is next.</p><div class="fullcomment"><div class="comment cmt"><p>Causes all the robots in the world to take a turn, starting with the one whose turn it is next.
+(After this is done, the robot who originally was next up, will be that once again.)</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="RobotBody.html#takeTurn():Unit" class="extmbr" name="o1.robots.RobotBody#takeTurn">RobotBody.takeTurn</a></p></span><span class="cmt"><p><a href="#advanceTurn():Unit" class="extmbr" name="o1.robots.RobotWorld#advanceTurn">advanceTurn</a></p></span><span class="cmt"><p><a href="#nextRobot:Option[o1.robots.RobotBody]" class="extmbr" name="o1.robots.RobotWorld#nextRobot">nextRobot</a></p></span></dd></dl></div>
+    </li><li name="o1.robots.RobotWorld#advanceTurn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="advanceTurn():Unit"></a>
+      <a id="advanceTurn():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">advanceTurn</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@advanceTurn():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Causes the next robot to take a turn.</p><div class="fullcomment"><div class="comment cmt"><p>Causes the next robot to take a turn. The turn then immediately passes to the next robot.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="RobotBody.html#takeTurn():Unit" class="extmbr" name="o1.robots.RobotBody#takeTurn">RobotBody.takeTurn</a></p></span><span class="cmt"><p><a href="#nextRobot:Option[o1.robots.RobotBody]" class="extmbr" name="o1.robots.RobotWorld#nextRobot">nextRobot</a></p></span></dd></dl></div>
+    </li><li name="o1.grid.Grid#allElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allElements:Iterable[ElementType]"></a>
+      <a id="allElements:Iterable[Square]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allElements</span><span class="result">: <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Square.html" class="extype" name="o1.robots.Square">Square</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@allElements:Iterable[ElementType]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of all the elements currently in the grid.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of all the elements currently in the grid.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="o1.grid.Grid#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(location:o1.grid.Coords):ElementType"></a>
+      <a id="apply(Coords):Square"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>)</span><span class="result">: <a href="Square.html" class="extype" name="o1.robots.Square">Square</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@apply(location:o1.grid.Coords):ElementType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the element at the given pair of coordinates.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the element at the given pair of coordinates. (This does the same as <code>elementAt</code>.)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="o1.grid.Grid#contains" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contains(location:o1.grid.Coords):Boolean"></a>
+      <a id="contains(Coords):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@contains(location:o1.grid.Coords):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Determines whether the grid contains the given pair of coordinates.</p><div class="fullcomment"><div class="comment cmt"><p>Determines whether the grid contains the given pair of coordinates.
+For instance,a grid with a width and height of 5 will contain (0, 0)
+and (4, 4) but not (-1, -1), (4, 5) or (5, 4).</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="o1.grid.Grid#elementAt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="elementAt(location:o1.grid.Coords):ElementType"></a>
+      <a id="elementAt(Coords):Square"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">elementAt</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>)</span><span class="result">: <a href="Square.html" class="extype" name="o1.robots.Square">Square</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@elementAt(location:o1.grid.Coords):ElementType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the element at the given pair of coordinates.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the element at the given pair of coordinates. (This does the same as <code>apply</code>.)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="o1.grid.Grid#height" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="height:Int"></a>
+      <a id="height:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">height</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@height:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the number of elements in each column of the grid</p><div class="fullcomment"><div class="comment cmt"><p>the number of elements in each column of the grid</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="o1.grid.Grid#neighbors" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="neighbors(location:o1.grid.Coords,includeDiagonals:Boolean):Vector[ElementType]"></a>
+      <a id="neighbors(Coords,Boolean):Vector[Square]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">neighbors</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>, <span name="includeDiagonals">includeDiagonals: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<a href="Square.html" class="extype" name="o1.robots.Square">Square</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@neighbors(location:o1.grid.Coords,includeDiagonals:Boolean):Vector[ElementType]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a list of all the neighboring elements of the indicated element.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a list of all the neighboring elements of the indicated element. Depending on
+the value of the second parameter, either only the four neighbors in cardinal compass
+directions (north, east, south, west) are considered, or the four diagonals as well.</p><p>Note that an element that is at the edge of the grid has fewer neighbors than one
+in the middle. For instance, the element at (0, 0) of a 5-by-5 grid has only three
+neighbors, diagonals included.
+</p></div><dl class="paramcmts block"><dt class="param">location</dt><dd class="cmt"><p>the coordinates of the element whose neighbors are to be returned</p></dd><dt class="param">includeDiagonals</dt><dd class="cmt"><p><code>true</code> if diagonal neighbors also count (resulting in up to eight neighbors),
+                         <code>false</code> if only cardinal directions count (resulting in up to four)</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="o1.robots.RobotWorld#nextRobot" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nextRobot:Option[o1.robots.RobotBody]"></a>
+      <a id="nextRobot:Option[RobotBody]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nextRobot</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="RobotBody.html" class="extype" name="o1.robots.RobotBody">RobotBody</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@nextRobot:Option[o1.robots.RobotBody]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the robot whose turn it is to act.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the robot whose turn it is to act. That is, returns the robot who will be the
+next one to act when <a href="#advanceTurn():Unit" class="extmbr" name="o1.robots.RobotWorld#advanceTurn">advanceTurn</a> or <a href="#advanceFullTurn():Unit" class="extmbr" name="o1.robots.RobotWorld#advanceFullTurn">advanceFullTurn</a> is called.</p><p>The robots take turns in a round-robin fashion: the first one to act is the first one
+that was added, the second to act is the second one to be added, and so on. When the
+robot that was added last has taken its turn, it becomes the first one's turn again.</p><p>Note that calling this method does not actually cause any robots to act or change the
+state of the robot world in any way. The method merely returns the robot whose turn it is.</p><p>(Clarifications: If a robot is added to the world while the last robot in the &quot;queue&quot;
+has the turn, it is perfectly possible for the new robot to get its first turn very soon,
+as soon as the previously added robot has acted. A newly added robot never <i>immediately</i>
+gains the turn, however, unless it is the first one to be added and therefore the only
+robot in the whole world.)
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the robot whose turn it is next, wrapped in an <code>Option</code>; <code>None</code> if there are no robots in this world</p></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="o1.robots.RobotWorld#numberOfRobots" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="numberOfRobots:Int"></a>
+      <a id="numberOfRobots:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">numberOfRobots</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@numberOfRobots:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the number of robots (robot bodies) that have been added to this world.</p>
+    </li><li name="o1.robots.RobotWorld#robotList" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="robotList:Vector[o1.robots.RobotBody]"></a>
+      <a id="robotList:Vector[RobotBody]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">robotList</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<a href="RobotBody.html" class="extype" name="o1.robots.RobotBody">RobotBody</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@robotList:Vector[o1.robots.RobotBody]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of all the robots in this robot world, in the order they were added to the world.</p>
+    </li><li name="o1.grid.Grid#size" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="size:Int"></a>
+      <a id="size:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">size</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@size:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the number of elements in this grid, in total.</p><div class="fullcomment"><div class="comment cmt"><p>the number of elements in this grid, in total. (Equals <code>width</code> times <code>height</code>.)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="o1.grid.Grid#update" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="update(location:o1.grid.Coords,newElement:ElementType):Unit"></a>
+      <a id="update(Coords,Square):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">update</span><span class="params">(<span name="location">location: <a href="../grid/Coords.html" class="extype" name="o1.grid.Coords">Coords</a></span>, <span name="newElement">newElement: <a href="Square.html" class="extype" name="o1.robots.Square">Square</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@update(location:o1.grid.Coords,newElement:ElementType):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Modifies the grid by replacing the existing element at the given location
+with the new, given element.</p><div class="fullcomment"><div class="comment cmt"><p>Modifies the grid by replacing the existing element at the given location
+with the new, given element.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="o1.grid.Grid#width" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="width:Int"></a>
+      <a id="width:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">width</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.robots.RobotWorld@width:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the number of elements in each row of the grid</p><div class="fullcomment"><div class="comment cmt"><p>the number of elements in each row of the grid</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="o1.grid.Grid">
+              <h3>Inherited from <a href="../grid/Grid.html" class="extype" name="o1.grid.Grid">Grid</a>[<a href="Square.html" class="extype" name="o1.robots.Square">Square</a>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> This document is part of the course materials for CSE-A1110 Ohjelmointi 1 at Aalto University. </div>
+
+
+    </body>
+      </html>

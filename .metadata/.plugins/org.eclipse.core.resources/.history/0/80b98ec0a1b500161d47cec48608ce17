@@ -1,0 +1,197 @@
+package o1.adventure
+import scala.util.Random
+
+
+/** The class `Adventure` represents text adventure games. An adventure consists of a player and 
+  * a number of areas that make up the game world. It provides methods for playing the game one
+  * turn at a time and for checking the state of the game.
+  *
+  */
+class Adventure {
+  
+  val RNG = new Random
+  def randomInt(n: Int) = RNG.nextInt(n)
+  
+  /** The title of the adventure game. */
+  val title = "Metrocrawl Lite"
+  
+  private def metroTunnelDescription = Vector("Standard modern metro tunnel.", "These metro tunnels go on forever!", "Is that light at the end of the tunnel?", "Oh wow, more metro tunnel...")(randomInt(3))
+  
+  private def darkTunnelDescription = "The tunnel is really dark. I can't see where I am going!"
+  var lightsOn: Boolean = false
+  
+  /** Game begins here.*/
+  private val turnaroundRail = new Area("Turnaround rail", "It is dark. You can distinct two tunnels.")
+  
+  /** The character that the player controls in the game. */
+  val player = new Player(turnaroundRail)
+  //First set of tunnels
+  private val aTube1        = new Area("Metrotunneli", "Standard modern metro tunnel. West Metro looks promising."); 
+  private val aTube2        = new Area("Metrotunneli", metroTunnelDescription); private val maintenanceRoomA1     = new Area("Maintenance room", "Small room used for storaging maintenance equipment")
+  private val aTube3        = new Area("Metrotunneli", metroTunnelDescription); private val maintenanceRoomB1     = new Area("Maintenance room", "Small room used for storaging maintenance equipment")
+  
+  private val bTube1        = new Area("Metrotunneli", "Standard modern metro tunnel. West Metro looks promising.")
+  private val bTube2        = new Area("Metrotunneli", metroTunnelDescription)
+  private val bTube3        = new Area("Metrotunneli", metroTunnelDescription)
+  
+  private val lauttasaariA  = new Area("Lauttasaari", "Metro station of Ferry Island. Metroes towards Ruoholahti")
+  private val lauttasaariB  = new Area("Lauttasaari", "Metro station of Ferry Island. Metroes towards Birch Island")
+  
+  //Second set of tunnels
+  private val aTube4        = new Area("Metrotunneli", metroTunnelDescription);
+  private val aTube5        = new Area("Metrotunneli", metroTunnelDescription); 
+  private val aTube6        = new Area("Metrotunneli", metroTunnelDescription); 
+  
+  private val bTube4        = new Area("Metrotunneli", metroTunnelDescription)
+  private val bTube5        = new Area("Metrotunneli", metroTunnelDescription); private val maintenanceRoomB2     = new Area("Maintenance room", "Small room used for storaging maintenance equipment")
+  private val bTube6        = new Area("Metrotunneli", metroTunnelDescription)
+
+  private val koivusaariA   = new Area("Koivusaari", "Metro station of Birch Island. Metroes towards Cone Cape."); private val computerRoom = new Area("Computer room", "Small room with a running computer in it. \nThe screen light creates an eery athmosphere.")
+  private val koivusaariB   = new Area("Koivusaari", "Metro station of Birch Island. Metroes towards Ferry Island")
+  
+  //Third set of tunnels
+  private val aTube7        = new Area("Metrotunneli", darkTunnelDescription); 
+  private val aTube8        = new Area("Metrotunneli", "It is truly dark. I cannot see a thing.");
+  private val aTube9        = new Area("Metrotunneli", darkTunnelDescription); 
+  
+  private val bTube7        = new Area("Metrotunneli", darkTunnelDescription)
+  private val bTube8        = new Area("Metrotunneli", "It is truly dark. I cannot see a thing."); private val maintenanceRoomB3     = new Area("Maintenance room", "Small room used for storaging maintenance equipment")
+  private val bTube9        = new Area("Metrotunneli", darkTunnelDescription)
+  
+  private val keilaniemiA   = new Area("Keilaniemi", "Metro station of Cone Cape. Metroes towards Aalto University")
+  private val keilaniemiB   = new Area("Keilaniemi", "Metro station of Cone Cape. Metroes towards Birch Island")
+  
+  //Fourth set of tunnels
+  private val aTube10       = new Area("Metrotunneli", metroTunnelDescription) 
+  private val aTube11       = new Area("Metrotunneli", metroTunnelDescription) 
+  private val aTube12       = new Area("Metrotunneli", metroTunnelDescription) 
+  
+  private val bTube10       = new Area("Metrotunneli", metroTunnelDescription)
+  private val bTube11       = new Area("Metrotunneli", metroTunnelDescription)
+  private val bTube12       = new Area("Metrotunneli", metroTunnelDescription)
+  
+  private val aaltoA        = new Area("Aalto University", "Metro station of Aalto University. Metroes towards Tapiola.")
+  private val aaltoB        = new Area("Aalto University", "Metro station of Aalto University. Metroes towards Cone Cape")
+  private val aalto         = new Area("Aalto University", "Welcome to Aalto University!")
+  
+  turnaroundRail.setNeighbors(Vector("right"  -> aTube1,              "left" -> bTube1                                               ))
+  
+  aTube1.setNeighbors      (Vector("forwards" -> aTube2,              "backwards" -> turnaroundRail                                  ))
+  aTube2.setNeighbors      (Vector("forwards" -> aTube3,              "backwards" -> aTube1,        "to room" -> maintenanceRoomA1   ))
+  aTube3.setNeighbors      (Vector("forwards" -> lauttasaariA,        "backwards" -> aTube2                                          ))
+  maintenanceRoomA1.setNeighbors(Vector("exit" -> aTube2                                                                             ))
+  
+  
+  bTube1.setNeighbors      (Vector("forwards" -> bTube2,              "backwards" -> turnaroundRail                                  ))
+  bTube2.setNeighbors      (Vector("forwards" -> bTube3,              "backwards" -> bTube1,        "to room" -> maintenanceRoomB1   ))
+  bTube3.setNeighbors      (Vector("forwards" -> lauttasaariB,        "backwards" -> bTube2                                          ))
+  maintenanceRoomB1.setNeighbors(Vector("exit" -> bTube2                                                                             ))
+
+  lauttasaariA.setNeighbors (Vector("switch side" -> lauttasaariB,    "forwards" -> aTube5, "backwards" -> aTube4                    ))
+  lauttasaariB.setNeighbors (Vector("switch side" -> lauttasaariA,    "forwards" -> bTube5, "backwards" -> bTube4                    ))
+  
+  aTube4.setNeighbors      (Vector("forwards" -> aTube5,              "backwards" -> lauttasaariA                                    ))
+  aTube5.setNeighbors      (Vector("forwards" -> aTube6,              "backwards" -> aTube4                                          ))
+  aTube6.setNeighbors      (Vector("forwards" -> koivusaariA,         "backwards" -> aTube5                                          ))
+  
+  bTube4.setNeighbors      (Vector("forwards" -> bTube5,              "backwards" -> lauttasaariB                                    ))
+  bTube5.setNeighbors      (Vector("forwards" -> bTube6,              "backwards" -> bTube4,        "to room" -> maintenanceRoomB2   ))
+  maintenanceRoomB2.setNeighbors(Vector("exit" -> aTube5                                                                             ))
+  bTube6.setNeighbors      (Vector("forwards" -> koivusaariB,         "backwards" -> bTube5                                          ))
+  
+  koivusaariA.setNeighbors (Vector("switch side" -> koivusaariB,      "forwards" -> aTube7, "backwards" -> aTube6, "to room" -> computerRoom))
+  koivusaariB.setNeighbors (Vector("switch side" -> koivusaariA,      "forwards" -> bTube7, "backwards" -> bTube6                    ))
+  computerRoom.setNeighbors(Vector("exit" -> koivusaariA))
+  
+  def darkTunnels(){
+    if(player.flashlightOn){
+        println("Tried to turn the lights on!")
+        aTube7.setNeighbors      (Vector("forwards" -> aTube8,              "backwards" -> koivusaariA                                     ))
+        aTube8.setNeighbors      (Vector("forwards" -> aTube9,              "backwards" -> aTube9                                          ))
+        aTube9.setNeighbors      (Vector("forwards" -> keilaniemiA,         "backwards" -> aTube8                                          ))
+      
+        bTube7.setNeighbors      (Vector("forwards" -> bTube8,              "backwards" -> koivusaariB                                     ))
+        bTube8.setNeighbors      (Vector("forwards" -> bTube9,              "backwards" -> bTube7                                          ))
+        bTube9.setNeighbors      (Vector("forwards" -> keilaniemiB,         "backwards" -> bTube8,        "to room" -> maintenanceRoomB3   ))
+        
+        }else{
+          println("Dark!")
+          aTube7.setNeighbors      (Vector("???"      -> aTube8,              "backwards" -> koivusaariA                                     ))
+          aTube8.setNeighbors      (Vector("???"      -> aTube8,              "?!?" -> aTube9,  "towards light" -> aTube7                    ))
+          aTube9.setNeighbors      (Vector("???"      -> aTube8,              "?!?" -> aTube9                                                ))
+        
+          bTube7.setNeighbors      (Vector("???"      -> bTube8,              "backwards" -> koivusaariB                                     ))
+          bTube8.setNeighbors      (Vector("???"      -> bTube8,              "?!?" -> bTube9,  "towards light" -> aTube7                    ))
+          bTube9.setNeighbors      (Vector("???"      -> bTube8,              "?!?" -> bTube9                                                ))
+    }
+  }
+  keilaniemiA.setNeighbors (Vector("switch side" -> keilaniemiB,      "forwards" -> aTube7, "backwards" -> aTube6                    ))
+  keilaniemiB.setNeighbors (Vector("switch side" -> keilaniemiA,      "forwards" -> bTube7, "backwards" -> bTube6                    ))
+  
+  aTube10.setNeighbors     (Vector("forwards" -> aTube11,             "backwards" -> keilaniemiA                                     ))
+  aTube11.setNeighbors     (Vector("forwards" -> aTube12,             "backwards" -> aTube10                                         ))
+  aTube12.setNeighbors     (Vector("forwards" -> aaltoA,              "backwards" -> aTube11                                         ))
+  
+  bTube10.setNeighbors     (Vector("forwards" -> bTube11,             "backwards" -> keilaniemiB                                     ))
+  bTube11.setNeighbors     (Vector("forwards" -> bTube12,             "backwards" -> bTube10                                         ))
+  bTube12.setNeighbors     (Vector("forwards" -> aaltoB,              "backwards" -> bTube8                                          ))
+  
+  aaltoA.setNeighbors      (Vector("switch side" -> aaltoB,           "up" -> aalto, "backwards" -> aTube12                          ))
+  aaltoB.setNeighbors      (Vector("switch side" -> aaltoA,           "up" -> aalto, "backwards" -> bTube12                          ))
+
+ 
+  /** Add items to Adventure */
+
+  //Randomly place the flashlight to one of the maintenance rooms
+  if(this.randomInt(1) == 0){
+    maintenanceRoomA1.addItem(new Item("flashlight", "It is a normal flashlights with batteries on it. I hope they are fully charged.", false))
+  }else if(this.randomInt(1) == 1){
+    maintenanceRoomB1.addItem(new Item("flashlight", "It is a normal flashlights with batteries on it. I hope they are fully charged.", false))
+  }
+  
+  maintenanceRoomB1.addItem(new Item("flashlight", "It is a normal flashlights with batteries on it. I hope they are fully charged.", false))
+//  }else{
+//    maintenanceRoomB1.addItem(new Item("flashlight", "It is a normal flashlights with batteries on it. I hope they are fully charged.", false))
+//  }
+  //Place the computer to computer room.
+  computerRoom.addItem(new Item("Computer", "The computer seems to be on.", false))
+
+
+  /** Determines if the adventure is complete, that is, if the player has won. */
+  def isComplete = this.player.location == this.aalto
+
+  /** Determines whether the player has won, lost, or quit, thereby ending the game. */ 
+  def isOver = this.isComplete || this.player.hasQuit || this.player.turnCount == this.player.timeLimit
+
+  /** Returns a message that is to be displayed to the player at the beginning of the game. */
+  def welcomeMessage = "You were in a metro on your route to Kamppi to catch a bus to Aalto Universty. \nYou fell asleep. \nWhen you woke up the metro was on its turnaround track. \nYour only option was to brace the West Metro's new tunnels to get to Aalto."
+
+    
+  /** Returns a message that is to be displayed to the player at the end of the game. The message 
+    * will be different depending on whether or not the player has completed their quest. */
+  def goodbyeMessage = {
+    if (this.isComplete)
+      "I made to Aalto! Phew, my candidate's thesis will be easy compared to this."
+    else if (this.player.turnCount == this.player.timeLimit)
+      "You are too exhausted to continue the game. The West Metro tunnels got you. Game over!"
+    else  // game over due to player quitting
+      "Quitter!" 
+  }
+
+  
+  /** Plays a turn by executing the given in-game command, such as "go west". Returns a textual 
+    * report of what happened, or an error message if the command was unknown. In the latter 
+    * case, no turns elapse. */
+  def playTurn(command: String) = {
+    val action = new Action(command)
+    val outcomeReport = action.execute(this.player)
+    darkTunnels()
+    if (outcomeReport.isDefined) { 
+      this.player.turnCount += 1 
+    }
+    outcomeReport.getOrElse("Unknown command: \"" + command + "\".")
+  }
+  
+  
+}
+

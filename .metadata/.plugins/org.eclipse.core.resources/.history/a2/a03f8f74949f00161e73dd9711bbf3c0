@@ -1,0 +1,24 @@
+package kierros2
+import scala.collection.mutable.ArrayBuffer
+
+
+object AudioEffects extends App {
+  
+  val second: Int = 44100
+  
+  def removeVocals(sound: StereoSound) = {
+    val soundData = ArrayBuffer[Int]()
+    
+    //käy läpi kaikki vasemman ja oikean kanavan alkiot
+       // vähennä vasen - oikea kanava ja jaa kahdella
+      // tallenna arvo uuteen ArrayBufferiin
+    
+    for(i <- sound.left){
+      soundData += (sound.left(i) - sound.right(i)) / 2
+    }
+    
+    
+    new StereoSound("vocalsRemoved", soundData, soundData)
+  }
+
+}

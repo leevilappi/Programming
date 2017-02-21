@@ -1,0 +1,8 @@
+package o1.auctionhouse
+
+class EnglishAuction(description: String, startingPrice: Int, duration: Int) {
+  
+  
+  
+  
+}

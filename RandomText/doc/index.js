@@ -1,0 +1,1 @@
+Index.PACKAGES = {"o1" : [], "o1.randomtext" : [{"class" : "o1\/randomtext\/RandomTextGenerator.html", "name" : "o1.randomtext.RandomTextGenerator"}], "o1.randomtext.gui" : [{"object" : "o1\/randomtext\/gui\/RandomTextApp$.html", "name" : "o1.randomtext.gui.RandomTextApp"}]};

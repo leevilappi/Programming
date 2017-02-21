@@ -1,0 +1,431 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>sananmuunnos - o1.sananmuunnos</title>
+          <meta name="description" content="sananmuunnos - o1.sananmuunnos" />
+          <meta name="keywords" content="sananmuunnos o1.sananmuunnos" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'o1.sananmuunnos.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body onload="/* Customizations for CSE-A1110: */ /* hide classtags: */ $('span.symbol span.params:contains(\'ClassTag\')').css('display', 'none');  /* fix style to accommodate long parameter names: */ $('dl.paramcmts > dd').css('margin-left', '110px'); /* pretend that toString has no parameter list: */ $('a[id=\'toString():String\']').closest('li').find('h4.signature span.symbol span.params').css('display', 'none'); /* hide most UI packages by default (needs improvement): */ $('div#tpl ol.packages li.pack a.tplshow').each(function() { if ($(this).text().match(/o1..*ui/) && $(this).text().match(/(RandomText|GoodStuff)/) == null) $(this).closest('li.pack').find('a.packhide').trigger('click') }); /* hide all inherited App stuff by default: */ $('ol#linearization').find('li').each(function() { if ($(this).text() == 'App' || $(this).text() == 'SimpleSwingApplication') $(this).closest('ol#linearization').find('li.in').trigger('click')  }); " class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="o1">o1</a></p>
+        <h1>sananmuunnos</h1><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sananmuunnos</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="o1.sananmuunnos"><span>sananmuunnos</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="o1.sananmuunnos.Sana" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SanaextendsAnyRef"></a>
+      <a id="Sana:Sana"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Sana.html"><span class="name">Sana</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@SanaextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Kukin <code>Sana</code>-tyyppinen olio kuvaa yhtä suomen kielen sanaa.</p><div class="fullcomment"><div class="comment cmt"><p>Kukin <code>Sana</code>-tyyppinen olio kuvaa yhtä suomen kielen sanaa. Tavallisesta merkkijonosta <code>Sana</code>-olio
+eroaa eritoten siten, että sillä on metodi <code>muunnos</code>, jonka avulla voi muodostaa lasten ja
+lapsenmielisten suosimia <b>sananmuunoksia</b>. Sananmuunnos saadaan yhdistämällä kahden sanan äänteitä
+(tässä: merkkejä) tiettyjen sääntöjen mukaan.</p><p>Sananmuunnos muodostetaan pääpiirteissään siten, että otetaan kaksi sanaa, vaihdetaan niiden
+alkupään merkkejä keskenään ja laitetaan syntyneet sanat peräkkäin. Prosessiin liittyy kuitenkin
+koko joukko yksityiskohtia, joista lisää alla.</p><h4>sananmuunoksen muodostamisen perusteet</h4><p>Helppo perustapaus: sanat ovat &quot;henri&quot; and &quot;kontinen&quot;. Otetaan kummastakin ensimmäinen konsonantti
+ja sitä seuraava vokaali: saadaan &quot;he&quot; ja &quot;ko&quot;. Vaihdetaan päittäin ja saadaan sananmuunnos:</p><p><code>henri kontinen --&gt; konri hentinen</code></p><p><code>tarja halonen --&gt; harja talonen</code></p><p>Jos sana alkaa usealla peräkkäisellä konsonantilla, siirretään ne kaikki toiseen sanaan.
+Jos taas konsonantteja ei alussa ole, vain ensimmäinen vokaali siirtyy:</p><p><code>frakki kontti --&gt; kokki frantti</code></p><p><code>ovi kello --&gt; kevi ollo</code></p><p>Yllä olevissa esimerkeissä kaikki vokaalit olivat &quot;lyhyitä&quot; eli niissä oli vain yksi merkki.
+Jos sama ensivokaalimerkki esiintyy sanassa useasti peräkkäin, muodostuu &quot;pitkä&quot; vokaali.
+Vokaalin pituus säilyy samana myös toiseen sanaan siirtäessä, vaikka itse vokaalimerkki
+voikin vaihtua:</p><p><code>haamu kontti -&gt; koomu hantti</code></p><p>Tarkempi selonteko edellisestä: Sanassa &quot;haamu&quot; on pitkä vokaali &quot;aa&quot;. Kun sanan alkupää
+korvataan kirjaimilla k ja o, säilyy vokaalin pituus ja saadaan &quot;koomu&quot; eikä &quot;komu&quot;.
+Sanassa &quot;kontti&quot; on puolestaan lyhyt vokaali &quot;o&quot;. Kun sen alkupää korvataan merkeillä
+h ja a, saadaan &quot;hantti&quot; eikä &quot;haantti&quot;.</p><p>Vaikka ensimmäisessä tavussa saattaakin olla useita eri vokaaleja, vain ensimmäisellä on
+tässä merkitystä:</p><p><code>hauva kontti --&gt; kouva hantti</code></p><p><code>puoskari kontti --&gt; kooskari puntti</code></p><h4>Vokaalisointu</h4><p>Suomessa on kahdenlaisia vokaaleja: <b>etuvokaaleja</b> (e, i, ä, y, ö) ja <b>takavokaaleja</b>
+(a, u, o). (Nimet liittyvät siihen, missä osassa suuta vokaalit äännetään.) Johtuen
+<i>vokaalisoinnuksi</i> kutsutusta kielellisestä ilmiöstä takavokaalit a, u ja o eivät
+tavallisesti esiinny samassa sanassa niitä vastaavien etuvokaalien ä, y ja ö kanssa.</p><p>sananmuunoksiin vokaalisointu liittyy seuraavasti. Jos mikä tahansa takavokaaleista a, u tai o
+sijoitetaan sanan alkuun, niin kaikki sanassa esiintyvät etuvokaalit ä, y ja ö on vaihdettava
+niitä vastaaviksi takavokaaleiksi. Niin käy tässä ä-kirjaimelle, joka muuttuu a:ksi.</p><p><code>köyhä kontti --&gt; kouha köntti</code></p><p>Sama toimii myös toisin päin eli etuvokaaleista takavokaaleiksi. Tässä syntyvän sananmuunoksen
+ensimmäiseen osaan tulee vain etuvokaaleita ja toiseen vain takavokaaleita:</p><p><code>hauva läähättää --&gt; läyvä haahattaa</code></p><p>Äänteen muuntumista toisen kaltaiseksi sanotaan <b>assimilaatioksi</b>. Vokaalit e ja i
+eivät assimiloidu suuntaan tai toiseen eivätkä aiheuta assimilaatiota toisissa vokaaleissa.</p><p>Huomaa, että vokaalisointua &quot;sovelletaan&quot; jo ennen kuin sananmuunoksen kaksi osaa yhdistetään.
+Vokaalisointu ei siis aiheuta muutoksia &quot;sanarajojen yli&quot;, kuten yllä olevasta esimerkistä voi
+havaita.</p><h4>Lisäesimerkkejä</h4><p>Alla on vielä muutama esimerkki sananmuunoksista:</p><p><code>frakki stressi --&gt; strekki frassi</code></p><p><code>äyskäri kontti --&gt; kouskari äntti</code></p><p><code>hattu sfääri --&gt; sfätty haari</code></p><p><code>ovi silmä --&gt; sivi olma</code></p><p><code>haamu prätkä --&gt; präämy hatka</code></p><p><code>puoskari sfääri --&gt; sfäöskäri puuri</code></p><p><code>puoskari äyskäri --&gt; äöskäri puuskari</code></p><h4>Tämä riittäköön tähän</h4><p>Todellisen elämän sananmuunoksiin liittyy tässä kuvattujen lisäksi vielä eräitä muitakin
+sääntöjä, mutta niitä ei käsitellä tai käytetä tässä. On erilaisia erikoistapauksia kuten lainasanat,
+jotka eivät noudata vokaalisointua (&quot;vampyyri&quot;), sekä yhdyssanat (&quot;jääkiekko&quot;).
+Tämän luokan toteutuksessa kuitenkin tällaiset tapaukset jätetään huomioimatta ja oletetaan,
+että vokaalisointu on aina tiukasti voimassa.
+</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="o1.sananmuunnos#Konsonantit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Konsonantit:String"></a>
+      <a id="Konsonantit:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Konsonantit</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@Konsonantit:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">merkkijono, joka sisältää kaikkia suomen kielen konsonantteja vastaavat kirjoitusmerkit</p>
+    </li><li name="o1.sananmuunnos#MuuttuvatEtuvokaalit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MuuttuvatEtuvokaalit:String"></a>
+      <a id="MuuttuvatEtuvokaalit:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MuuttuvatEtuvokaalit</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@MuuttuvatEtuvokaalit:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">merkkijono, joka sisältää kaikkia suomen kielen &quot;muuttuvia etuvokaaleita&quot; (ä, ö, y) vastaavat kirjoitusmerkit</p>
+    </li><li name="o1.sananmuunnos#MuuttuvatTakavokaalit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MuuttuvatTakavokaalit:String"></a>
+      <a id="MuuttuvatTakavokaalit:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MuuttuvatTakavokaalit</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@MuuttuvatTakavokaalit:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">merkkijono, joka sisältää kaikkia suomen kielen &quot;muuttuvia takavokaaleita&quot; (a, o, u) vastaavat kirjoitusmerkit</p>
+    </li><li name="o1.sananmuunnos.Sana" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Sana"></a>
+      <a id="Sana:Sana"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Sana$.html"><span class="name">Sana</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@Sana" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tämä <code>Sana</code>-luokan kumppaniolio tarjoaa yhden metodin, jonka avulla sananmuunoksia on hieman kätevämpi tehdä.</p><div class="fullcomment"><div class="comment cmt"><p>Tämä <code>Sana</code>-luokan kumppaniolio tarjoaa yhden metodin, jonka avulla sananmuunoksia on hieman kätevämpi tehdä.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="Sana.html" class="extype" name="o1.sananmuunnos.Sana">Sana</a>-luokka</p></span></dd></dl></div>
+    </li><li name="o1.sananmuunnos#Vokaalit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Vokaalit:String"></a>
+      <a id="Vokaalit:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Vokaalit</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@Vokaalit:String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">merkkijono, joka sisältää kaikkia suomen kielen vokaaleita vastaavat kirjoitusmerkit</p>
+    </li><li name="o1.sananmuunnos#assimiloi" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="assimiloi(mika:Char,mihin:Char):Char"></a>
+      <a id="assimiloi(Char,Char):Char"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">assimiloi</span><span class="params">(<span name="mika">mika: <span class="extype" name="scala.Char">Char</span></span>, <span name="mihin">mihin: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Char">Char</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@assimiloi(mika:Char,mihin:Char):Char" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa ensimmäisen parametrimerkin siirrettynä &quot;taakse&quot; tai &quot;eteen&quot; sen perusteella,
+millainen jälkimmäinen parametrimerkki on.</p><div class="fullcomment"><div class="comment cmt"><p>Palauttaa ensimmäisen parametrimerkin siirrettynä &quot;taakse&quot; tai &quot;eteen&quot; sen perusteella,
+millainen jälkimmäinen parametrimerkki on. Ensimmäisesta merkistä siis palautetaan sellainen
+versio joka muistuttaa ääntämispaikaltaan jälkimmäistä merkkiä.</p><p>Tarkemmin sanoen:</p><p>Jos ensimmäinen parametrimerkki vastaa  &quot;muuttuvaa takavokaalia&quot; (a, o, u) ja toinen parametri
+&quot;muuttuvaa etuvokaalia&quot; (ä, ö, y), niin palautetaan ensimmäinen merkki &quot;etuvokaaliksi vaihdettuna&quot;.
+Esimerkiksi <code>assimiloi('a', 'y')</code> palauttaa ä-merkin.</p><p>Jos ensimmäinen parametrimerkki vastaa  &quot;muuttuvaa etuvokaalia&quot; (ä, ö, y) ja toinen parametri
+&quot;muuttuvaa takavokaalia&quot; (a, o, u), niin palautetaan ensimmäinen merkki &quot;takavokaaliksi vaihdettuna&quot;.
+Esimerkiksi <code>assimiloi('ä', 'u')</code> palauttaa a-merkin.</p><p>Kaikissa muissa tapauksissa palautetaan ensimmäisenä parametriksi saatu merkki sellaisenaan.</p></div></div>
+    </li><li name="o1.sananmuunnos#eteen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eteen(symboli:Char):Char"></a>
+      <a id="eteen(Char):Char"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eteen</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Char">Char</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@eteen(symboli:Char):Char" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Jos parametriksi annettu merkki vastaa &quot;muuttuvaa takavokaalia&quot; (a, o, u), palauttaa sitä vastaavan
+etuvokaalin (ä, ö, y).</p><div class="fullcomment"><div class="comment cmt"><p>Jos parametriksi annettu merkki vastaa &quot;muuttuvaa takavokaalia&quot; (a, o, u), palauttaa sitä vastaavan
+etuvokaalin (ä, ö, y). Muussa tapauksessa palauttaa annetun merkin sellaisenaan.</p></div></div>
+    </li><li name="o1.sananmuunnos#onKirjain" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="onKirjain(symboli:Char):Boolean"></a>
+      <a id="onKirjain(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onKirjain</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onKirjain(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki kuuluu suomen kielen perusaakkosiin eli on sellainen
+merkki, jota käytetään suomessa jonkin vokaalin tai konsonantin kuvaamiseen.</p><div class="fullcomment"><div class="comment cmt"><p>Palauttaa <code>true</code>, jos parametriksi annettu merkki kuuluu suomen kielen perusaakkosiin eli on sellainen
+merkki, jota käytetään suomessa jonkin vokaalin tai konsonantin kuvaamiseen. Palauttaa <code>false</code> muutoin.</p></div></div>
+    </li><li name="o1.sananmuunnos#onKonsonantti" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onKonsonantti(symboli:Char):Boolean"></a>
+      <a id="onKonsonantti(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onKonsonantti</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onKonsonantti(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki vastaa suomen kielen perusaakkosissa jotakin
+konsonanttia, <code>false</code> muutoin.</p>
+    </li><li name="o1.sananmuunnos#onMuuttuvaEtuvokaali" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onMuuttuvaEtuvokaali(symboli:Char):Boolean"></a>
+      <a id="onMuuttuvaEtuvokaali(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onMuuttuvaEtuvokaali</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onMuuttuvaEtuvokaali(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki vastaa suomen kielen perusaakkosissa jotakin
+&quot;muuttuvaa etuvokaalia&quot; (ä, ö, y), <code>false</code> muutoin.</p>
+    </li><li name="o1.sananmuunnos#onMuuttuvaTakavokaali" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onMuuttuvaTakavokaali(symboli:Char):Boolean"></a>
+      <a id="onMuuttuvaTakavokaali(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onMuuttuvaTakavokaali</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onMuuttuvaTakavokaali(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki vastaa suomen kielen perusaakkosissa jotakin
+&quot;muuttuvaa takavokaalia&quot; (a, o, u), <code>false</code> muutoin.</p>
+    </li><li name="o1.sananmuunnos#onMuuttuvaVokaali" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onMuuttuvaVokaali(symboli:Char):Boolean"></a>
+      <a id="onMuuttuvaVokaali(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onMuuttuvaVokaali</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onMuuttuvaVokaali(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki vastaa suomen kielen perusaakkosissa jotakin
+&quot;muuttuvaa vokaalia&quot; (a, ä, o, ö, u, y), <code>false</code> muutoin.</p>
+    </li><li name="o1.sananmuunnos#onVokaali" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onVokaali(symboli:Char):Boolean"></a>
+      <a id="onVokaali(Char):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onVokaali</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@onVokaali(symboli:Char):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa <code>true</code>, jos parametriksi annettu merkki vastaa suomen kielen perusaakkosissa jotakin
+vokaalia, <code>false</code> muutoin.</p>
+    </li><li name="o1.sananmuunnos#taakse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="taakse(symboli:Char):Char"></a>
+      <a id="taakse(Char):Char"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">taakse</span><span class="params">(<span name="symboli">symboli: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Char">Char</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.package@taakse(symboli:Char):Char" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Jos parametriksi annettu merkki vastaa &quot;muuttuvaa etuvokaalia&quot; (ä, ö, y), palauttaa sitä vastaavan
+takavokaalin (a, o, u).</p><div class="fullcomment"><div class="comment cmt"><p>Jos parametriksi annettu merkki vastaa &quot;muuttuvaa etuvokaalia&quot; (ä, ö, y), palauttaa sitä vastaavan
+takavokaalin (a, o, u). Muussa tapauksessa palauttaa annetun merkin sellaisenaan.</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> This document is part of the course materials for CSE-A1110 Ohjelmointi 1 at Aalto University. </div>
+
+
+    </body>
+      </html>

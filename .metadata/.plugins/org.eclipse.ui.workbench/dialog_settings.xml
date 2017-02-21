@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="7" key="DIALOG_X_ORIGIN"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
-	</section>
-	<section name="org.eclipse.ui.preferences.keysPreferencePage">
-		<item value="true" key="actionSetFilter"/>
-		<item value="true" key="uncategorizedFilter"/>
-		<item value="true" key="internalFilter"/>
+		<item value="106" key="DIALOG_X_ORIGIN"/>
+		<item value="80" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="759" key="dialogHeight"/>
 		<item value="1440" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.ui.preferencePages.Keys"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.preferences"/>
 		</list>
 		<list key="textArray">
-			<item value="keys"/>
-			<item value="key"/>
 		</list>
 	</section>
+	<section name="PreferencesImportWizard">
+		<item value="C:\Users\Leevi\Downloads\o1_2016.epf" key=""/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Leevi\Downloads\o1_2016.epf"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
 	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.export.ZipFile" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
 		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Leevi\Desktop\526270_LeeviLappi.zip"/>
+			<item value="C:\Users\Leevi\Desktop\526270_sound.zip"/>
 		</list>
 	</section>
 </section>

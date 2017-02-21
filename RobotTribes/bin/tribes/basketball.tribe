@@ -1,0 +1,45 @@
+######################################################################
+# Members of the Basketball tribe like to bounce. When it collides	 #
+# with an object it bounces. If the object is another member of the  #
+# the tribe they will stick together and spin together for a moment. #
+# If the tribe feels threatened they will panic and start spinning   #
+# alone. Tribe members feel most comfortable close together, like    #
+# they were in a basket												 #
+######################################################################
+
+start:
+  talk defense
+  iffriend defense
+  ifnempty obstacle
+  score
+  iflt radar -10 abort
+  move
+  goto start
+  
+obstacle:
+  ifrandom change
+  spin
+  spin
+  goto start
+
+change: 
+  switch
+  spin
+  spin
+  goto start
+  
+abort:
+  score
+  ifgt radar 10 start
+  iffriend defense
+  ifwall   defense
+  spin
+  goto abort
+  
+defense:
+  spin
+  iffriend defense
+  ifwall   defense
+
+
+

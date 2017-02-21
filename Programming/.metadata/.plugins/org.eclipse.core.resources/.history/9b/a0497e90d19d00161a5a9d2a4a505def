@@ -1,0 +1,20 @@
+package o1.auctionhouse
+	
+	
+class FixedPriceSale(description: String, price: Int, duration: Int) extends InstantPurchase(description: String){
+	  
+	  private var remaining = duration                 // stepper
+	  private var buyerName: Option[String] = None     // fixed value (once set) 
+	
+	  def advanceOneDay() = {
+	    this.duration -= 1
+	  }
+
+	
+	 
+
+
+	  
+	}
+	
+	

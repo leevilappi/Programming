@@ -1,0 +1,37 @@
+package o1.auctionhouse
+
+
+class InstantPurchase(description: String) extends ItemForSale(description: String) {
+  
+  private var days: Int = 0
+  
+  def advanceOneDay(): Unit ={
+    this.days += 1
+  }
+  
+  def isExpired: Boolean  = {
+    !this.isOpen && this.buyer.isEmpty
+  }
+  
+  def isOpen: Boolean = {
+    if (!this.isExpired && this.buyer.isEmpty){
+      true
+    } else {
+      false
+    }
+  }
+  
+  def price: Int = this.price
+  
+  def buyer: Option[String]  = {
+    if(!this.isExpired){
+      None
+    }else{
+      this.buyer
+    }
+  }
+  
+  override def toString: String = this.description
+
+  
+}

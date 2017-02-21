@@ -1,0 +1,14 @@
+package kierros2
+
+object AudioTests extends App {
+  
+//Voit käyttää tätä oliota ääniefektien testaamiseen
+//
+//ESIM:
+//
+//val sound = new StereoSound("sounds/love.wav")
+//AudioEffects.removeVocals(sound).play()
+
+  val ts1 = new StereoSound("sounds/love.wav")
+  ts1.play()
+}

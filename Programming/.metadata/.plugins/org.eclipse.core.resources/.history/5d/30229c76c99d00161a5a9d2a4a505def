@@ -1,0 +1,6 @@
+package o1.auctionhouse
+
+
+class InstantPurchase(description: String) with ItemForSale {
+  
+}

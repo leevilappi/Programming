@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Robots"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Grid"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/O1Yleiset"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="scala-parser-combinators_2.11-1.0.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

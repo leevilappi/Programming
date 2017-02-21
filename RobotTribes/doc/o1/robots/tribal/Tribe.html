@@ -1,0 +1,1469 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Tribe - o1.robots.tribal.Tribe</title>
+          <meta name="description" content="Tribe - o1.robots.tribal.Tribe" />
+          <meta name="keywords" content="Tribe o1.robots.tribal.Tribe" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'o1.robots.tribal.Tribe';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body onload="/* Customizations for CSE-A1110: */ /* hide classtags: */ $('span.symbol span.params:contains(\'ClassTag\')').css('display', 'none');  /* fix style to accommodate long parameter names: */ $('dl.paramcmts > dd').css('margin-left', '110px'); /* pretend that toString has no parameter list: */ $('a[id=\'toString():String\']').closest('li').find('h4.signature span.symbol span.params').css('display', 'none'); /* hide most UI packages by default (needs improvement): */ $('div#tpl ol.packages li.pack a.tplshow').each(function() { if ($(this).text().match(/o1..*ui/) && $(this).text().match(/(RandomText|GoodStuff)/) == null) $(this).closest('li.pack').find('a.packhide').trigger('click') }); /* hide all inherited App stuff by default: */ $('ol#linearization').find('li').each(function() { if ($(this).text() == 'App' || $(this).text() == 'SimpleSwingApplication') $(this).closest('ol#linearization').find('li.in').trigger('click')  }); " class="type">
+      <div id="definition">
+        <a href="Tribe$.html" title="See companion object"><img alt="Class/Object" src="../../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../../package.html" class="extype" name="o1">o1</a>.<a href="../package.html" class="extype" name="o1.robots">robots</a>.<a href="package.html" class="extype" name="o1.robots.tribal">tribal</a></p>
+        <h1><a href="Tribe$.html" title="See companion object">Tribe</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Tribe$.html" title="See companion object">object Tribe</a>
+            | <a href="package.html" class="extype" name="o1.robots.tribal">package tribal</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Tribe</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A &quot;tribe&quot; of robots is essentially a program which makes any robots who follow that program
+--- the &quot;members&quot; of the tribe --- to behave in a certain way.</p><p><b>NOTE TO STUDENTS: In this course, you don't need to understand every aspect of this relatively
+complex class. However, you should read the text below so you know how to use the RoboSpeak language.
+You'll also need to modify the source code of this class a bit, as described in Chapter 12.1
+of the course materials.</b></p><h4>RoboSpeak</h4><p>As a Plan A, tribal robots spend their turn attacking nearby enemies (see class <a href="TribalBot.html" class="extype" name="o1.robots.tribal.TribalBot">TribalBot</a>).
+However, when there is no enemy directly in front, the tribal bot will instead follow its
+tribe's program to maneuver itself.</p><p>Tribal programs are written in a programming language called <b>RoboSpeak</b>. RoboSpeak can be
+described as &quot;machine code for tribal robots&quot;. It features a smallish number of simple instructions
+(commands) which can be combined to build programs that direct tribal robots' actions.
+A description of RoboSpeak appears below.</p><h4>Action Instructions</h4><p>There are three &quot;action instructions&quot; that cause a tribal bot to spend its turn on something concrete:</p><ul><li><i>move</i>: Attempt to move forward one step into an empty square.</li><li><i>spin</i>: Spin 90 degrees. Unless otherwise specified (see below), the robot spins clockwise.</li><li><i>wait</i>: Stand still: don't move, don't spin.</li></ul><p>Even if a robot fails to execute an action instruction (this happens if there is something
+blocking movement), the attempt ends the robot's turn.</p><h4>An Introductory Example</h4><p>By themselves, action instructions are not enough to write interesting RoboSpeak programs.
+To control the use of action instructions, RoboSpeak provides a variety of &quot;logic instructions&quot;
+which allow a tribal bot to reason about its state and surroundings.</p><p>Here is a simple RoboSpeak program. It causes the members of a tribe to move forward as long
+as they can, turning clockwise whenever they run into a wall.</p><pre>ifwall <span class="num">4</span>
+move
+goto <span class="num">1</span>
+spin
+goto <span class="num">1</span></pre><p>This program can be paraphrased as: &quot;If you see a wall in front of you, go to line 4 (where you spin clockwise
+before returning to line 1). Otherwise, move one step forward and return to line 1.&quot; Either moving or spinning
+ends the robot's turn. Next turn, it resumes where it left off. In this example, it so happens that the
+robot will always start its turns by returning to line 1 (because both the <i>move</i> and <i>spin</i>
+commands are followed by <i>goto 1</i>).</p><p>Only the two action instructions listed above end a tribal bot's turn: a robot can execute any
+number of non-action instructions during a turn.</p><h4>Basic Logic</h4><p>Some basic logic instructions are:</p><ul><li><i>goto N</i>: Continue executing the program from line N.</li><li><i>switch</i>: Change the direction in which the robot spins when the <i>spin</i> instruction is executed.
+               If the robot was previously spinning clockwise, it now spins counterclockwise.
+               If it was spinning counterclockwise, it now spins clockwise. Note that switching
+               only affects future spins; it does not actually spin the robot immediately.</li><li><i>ifempty N</i>: If there is nothing in the square in front of you, continue executing the program
+               from line N, otherwise execution from the next line. The command <i>ifnempty N</i> does
+               exactly the opposite, and jumps to line N if and only if the square is not empty.</li><li><i>iffriend N</i>: If there is a friend (a robot of the same tribe) in the square in front of you,
+               continue executing the program from line N, otherwise continue execution from the next line.
+               The command <i>ifnfriend N</i> does exactly the opposite, and jumps to line N if and only
+               if there is no friend present.</li><li><i>ifwall N</i>: If there is a wall in the square in front of you, continue executing the program from
+               line N, otherwise continue execution from the next line. The command <i>ifnwall N</i> does
+               exactly the opposite, and jumps to line N if and only if there is no wall present.</li><li><i>ifrandom N</i>: &quot;Flip a coin&quot;: 50% chance of continuing from line N, 50% chance of continuing from
+               the next line.</li></ul><h4>Labels</h4><p>Since using line number literals is highly inconvenient when editing any program longer than a
+dozen lines or so, RoboSpeak allows the programmer to define <b>labels</b>. Labels are essentially
+names for program locations. They can be used instead of line numbers in RoboSpeak instructions.</p><p>A label is defined by line that contains a single word (the name of the label)
+followed by a colon. Here is the previous RoboSpeak program rewritten using labels:</p><pre>start:
+  ifwall wallfound
+  move
+  goto start
+wallfound:
+  spin
+  goto start</pre><p>A label definition itself does not instruct a tribal bot to do anything.
+It is simply a name for a location in code.</p><p>Anywhere a line number is required as a parameter to a RoboSpeak instruction, a label name
+may be used instead.</p><h4>Comments and Whitespace</h4><p>In RoboSpeak, the hash character (#) means that the rest of the line is a comment and does not
+have any effect on robot behavior. Empty lines are likewise ignored. Using whitespace for
+indentation is encouraged.</p><p>Here is a slightly more complex tribe whose code has been explained using comments.</p><pre>#########################################################
+# A member of the Tiger Tribe moves straight forward,   #
+# hacking anything it sees in front of it. When its     #
+# route is blocked, it turns either left or right at    #
+# random.                                               #
+#########################################################
+
+start:                        # Main loop: turn or move
+  ifnempty turn               # turn <span class="kw">if</span> facing an obstacle
+  move                        # move otherwise
+  goto start                  # repeat the above
+
+turn:                         # Turns left or right at random
+  ifrandom noswitch
+  switch
+noswitch:
+  spin
+  goto start</pre><h4>Pacifist Tribes</h4><p>If a RoboSpeak program contains a line that consists of the word <i>pacifist</i>, then members of the
+tribe will not try to hack anyone at the beginning of their turns (the bunny tribe is an example).</p><h4>Using Memory Slots</h4><p>Each tribal bot has three <b>memory slots</b> called <i>mem</i>, <i>radar</i> and <i>hackline</i>, each of
+which can store an integer value. Some commands directly manipulate these slots:</p><ul><li><i>set S N</i>: Set the value of slot S to N. The parameter S must be a slot name. For instance,
+   <i>set mem 5</i> stores the value five in <i>mem</i>, replacing any previously stored value.</li><li>A slot name can be used as a parameter value. For instance, <i>goto mem</i> causes execution to
+   jump to the line indicated by the current value of <i>mem</i>, and <i>set mem radar</i> copies the
+   value of <i>radar</i> into <i>mem</i>.</li></ul><p>In addition to the logic instructions listed above, RoboSpeak features a few commands that compare
+numerical values. These work best in combination with memory slots:</p><ul><li><i>ifeq A B N</i>: If A equals B then continue executing the program from line N, otherwise
+                   continue execution from the next line. For instance, <i>ifeq mem 100 22</i> jumps
+                   to line 22 if the memory slot <i>mem</i> contains the value 100.
+                   The command <i>ifneq A B N</i> does exactly the opposite, and jumps to N if and
+                   only if A and B are not equal.</li><li><i>ifgt A B N</i>: If A is greater than B then continue executing the program from line N, otherwise
+                   continue execution from the next line.</li><li><i>iflt A B N</i>: If A is less than B then continue executing the program from line N, otherwise
+                   continue execution from the next line.</li></ul><p>The slot <i>mem</i> may be used for anything. The slots <i>radar</i> and <i>hackline</i> have
+special purposes --- see below.</p><h4>Radar Commands</h4><p>The <i>radar</i> memory slot is a special one that is automatically assigned a new value whenever
+the robot uses any of the available radar commands:</p><ul><li><i>enemiesnear</i>: Use the radar to find out how many non-pacifist enemy bots are
+                    within two steps of the acting robot. (See diagram below.) Stores this
+                    number in <i>radar</i>.</li><li><i>friendsnear</i>: Use the radar to find out how many friendly robots are within
+                    two steps of the acting robot. (See diagram below.) Stores this number
+                    in <i>radar</i>. The robot does not count itself as a friend.</li><li><i>foddernear</i>: Use the radar to find out how many pacifist bots are within
+                   two steps of the acting robot. (See diagram below.) Stores this number
+                   in <i>radar</i>. This count does not include the acting robot, even if
+                   it is a pacifist one. Non-tribal bots count as pacifists for this purpose.</li><li><i>fodderleft</i>: Use the radar to produce a count of how many &quot;fodder bots&quot;
+                   (see <i>foddernear</i> above) there still are in the entire robot world.
+                   Stores this number in <i>radar</i>.</li><li><i>score</i>: Use the radar to produce a number that indicates who is leading the
+                   ongoing tribal fight and by how much. Stores this number in <i>radar</i>.
+                   A positive number means that the acting robot's tribe is more populous than
+                   any other tribe in the robot world, while a negative number means that another
+                   tribe is leading. The magnitude of the lead is also given: for instance, a
+                   score of 5 means that the acting robot's tribe has five more members than
+                   the second-placed one, and -10 means that the acting robot's tribe has ten
+                   fewer members than the leading tribe. Pacifist tribes are ignored when
+                   determining the score.</li></ul><p>A &quot;step&quot; means a non-diagonal move to an adjacent square. For instance, in the diagram below, robots
+A, B, C, D, and E are within two steps of robot R, but robots F and G aren't. (# represents a wall,
+and . represents an empty floor square.)</p><pre>###########
+#..A......#
+#.D#RBC...#
+#.....G...#
+#.F.E.....#
+###########</pre><h4>Hacking and Talking</h4><p>As noted above, non-pacifist tribal bots always automatically spend their turn hacking a nearby
+enemy whenever possible. When this happens, the enemy robot starts executing its tribal program from
+whichever line number is stored in the hacking robot's <i>hackline</i> memory slot. As the default value of
+all memory slots is 1, hacked robots start running their programs from the beginning, unless a <i>set</i>
+command has been used to modify the value of <i>hackline</i>.</p><p>Robots can also affect how their existing tribemates behave. The command <i>talk N</i> transmits a
+command to a nearby friendly robot. Assuming that there is a friendly robot in front of the acting
+robot, the friend jumps to line N in its RoboSpeak program. The next time the friend gets a turn,
+it will resume executing its program from line N onwards. If there is no friendly robot right in front
+of the acting robot, this instruction achieves nothing. Talking does not end a robot's turn.</p><p>A robot that is hacked or talked to is rebooted. Its state (spinning direction, memory slots, etc.)
+are reset.</p><h4>Subprograms</h4><p>RoboSpeak provides a mechanism for making subprogram calls. Subprogram calls are similar to function
+calls in Scala in that they cause a specified sequence of instructions to be executed, after
+which execution resumes at the location where the call was made. However, they are much simpler
+than function calls in that RoboSpeak subprograms can not receive any parameters, don't produce
+return values, and are never invoked on objects. (RoboSpeak is not an object-oriented language.)</p><p>Two RoboSpeak instructions are directly related to subprogram calls:</p><ul><li><i>callsub N</i>: Calls a subprogram that starts at line N, causing program execution to jump to
+            that line. Although this is similar to <i>goto N</i>, there is a crucial difference.
+            While the <i>goto</i> command simply moves program execution from one place to another,
+            <i>callsub</i> causes the robot to remember that it is making a subprogram call.
+            More specifically, the robot will remember that there is a location at which
+            the subprogram was called and where program execution is supposed to resume once the
+            end of the subprogram's code has been reached.</li><li><i>return</i>: Marks the end of a subprogram's code. When this instruction is executed the robot
+            returns to where the subprogram was called, and resumes program execution at the
+            following RoboSpeak instruction.</li></ul><p>Here is an example of a tribe that makes use of subprogram calls. Notice that just like Scala
+functions can call other functions, subprograms can also call other subprograms.</p><pre># A member of the Patrolman Tribe moves clockwise in rectangles,
+# hacking every enemy it encounters. When it runs into obstacles,
+# it takes a look around counterclockwise before proceeding.
+
+start:
+  callsub advance     # repeat three times: <span class="kw">try</span> to advance
+  callsub advance
+  callsub advance
+  spin                # turn clockwise
+  goto start
+
+advance:              # move unless obstacle in front
+  ifnempty cantmove
+  move
+  <span class="kw">return</span>
+cantmove:             # spin around counterclockwise
+  switch
+  spin
+  spin
+  spin
+  switch
+  <span class="kw">return</span></pre></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="o1.robots.tribal.Tribe"><span>Tribe</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="o1.robots.tribal.Tribe#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(name:String,fileName:String):o1.robots.tribal.Tribe"></a>
+      <a id="&lt;init&gt;:Tribe"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Tribe</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fileName">fileName: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@&lt;init&gt;(name:String,fileName:String):o1.robots.tribal.Tribe" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the name of the tribe</p></dd><dt class="param">fileName</dt><dd class="cmt"><p>the path to a file containing the RoboSpeak program that defines the tribe's behavior</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="o1.robots.tribal.Tribe.ActionInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ActionInstructionextendsTribe.this.SimpleInstruction"></a>
+      <a id="ActionInstruction:ActionInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$ActionInstruction.html"><span class="name">ActionInstruction</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ActionInstructionextendsTribe.this.SimpleInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.BranchInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BranchInstructionextendsTribe.this.JumpInstruction"></a>
+      <a id="BranchInstruction:BranchInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$BranchInstruction.html"><span class="name">BranchInstruction</span></a><span class="result"> extends <a href="Tribe$JumpInstruction.html" class="extype" name="o1.robots.tribal.Tribe.JumpInstruction">JumpInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@BranchInstructionextendsTribe.this.JumpInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.CallSub" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CallSubextendsTribe.this.GenericInstructionwithTribe.this.ContinuesTurn"></a>
+      <a id="CallSub:CallSub"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$CallSub.html"><span class="name">CallSub</span></a><span class="result"> extends <a href="Tribe$GenericInstruction.html" class="extype" name="o1.robots.tribal.Tribe.GenericInstruction">GenericInstruction</a> with <a href="Tribe$ContinuesTurn.html" class="extype" name="o1.robots.tribal.Tribe.ContinuesTurn">ContinuesTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@CallSubextendsTribe.this.GenericInstructionwithTribe.this.ContinuesTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Comparison" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ComparisonextendsTribe.this.BranchInstruction"></a>
+      <a id="Comparison:Comparison"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Comparison.html"><span class="name">Comparison</span></a><span class="result"> extends <a href="Tribe$BranchInstruction.html" class="extype" name="o1.robots.tribal.Tribe.BranchInstruction">BranchInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ComparisonextendsTribe.this.BranchInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.ContinuesTurn" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ContinuesTurnextendsInstruction"></a>
+      <a id="ContinuesTurn:ContinuesTurn"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$ContinuesTurn.html"><span class="name">ContinuesTurn</span></a><span class="result"> extends <a href="Instruction.html" class="extype" name="o1.robots.tribal.Instruction">Instruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ContinuesTurnextendsInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Directive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DirectiveextendsTribe.this.Pass"></a>
+      <a id="Directive:Directive"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Directive.html"><span class="name">Directive</span></a><span class="result"> extends <a href="Tribe$Pass.html" class="extype" name="o1.robots.tribal.Tribe.Pass">Pass</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@DirectiveextendsTribe.this.Pass" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.EndsTurn" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="EndsTurnextendsInstruction"></a>
+      <a id="EndsTurn:EndsTurn"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$EndsTurn.html"><span class="name">EndsTurn</span></a><span class="result"> extends <a href="Instruction.html" class="extype" name="o1.robots.tribal.Instruction">Instruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@EndsTurnextendsInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.EnemiesNear" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EnemiesNearextendsTribe.this.RadarCount"></a>
+      <a id="EnemiesNear:EnemiesNear"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$EnemiesNear.html"><span class="name">EnemiesNear</span></a><span class="result"> extends <a href="Tribe$RadarCount.html" class="extype" name="o1.robots.tribal.Tribe.RadarCount">RadarCount</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@EnemiesNearextendsTribe.this.RadarCount" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.FodderLeft" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FodderLeftextendsTribe.this.RadarCount"></a>
+      <a id="FodderLeft:FodderLeft"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$FodderLeft.html"><span class="name">FodderLeft</span></a><span class="result"> extends <a href="Tribe$RadarCount.html" class="extype" name="o1.robots.tribal.Tribe.RadarCount">RadarCount</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@FodderLeftextendsTribe.this.RadarCount" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.FodderNear" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FodderNearextendsTribe.this.RadarCount"></a>
+      <a id="FodderNear:FodderNear"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$FodderNear.html"><span class="name">FodderNear</span></a><span class="result"> extends <a href="Tribe$RadarCount.html" class="extype" name="o1.robots.tribal.Tribe.RadarCount">RadarCount</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@FodderNearextendsTribe.this.RadarCount" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.FriendsNear" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FriendsNearextendsTribe.this.RadarCount"></a>
+      <a id="FriendsNear:FriendsNear"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$FriendsNear.html"><span class="name">FriendsNear</span></a><span class="result"> extends <a href="Tribe$RadarCount.html" class="extype" name="o1.robots.tribal.Tribe.RadarCount">RadarCount</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@FriendsNearextendsTribe.this.RadarCount" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.GenericInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GenericInstructionextendsInstruction"></a>
+      <a id="GenericInstruction:GenericInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$GenericInstruction.html"><span class="name">GenericInstruction</span></a><span class="result"> extends <a href="Instruction.html" class="extype" name="o1.robots.tribal.Instruction">Instruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@GenericInstructionextendsInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Goto" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GotoextendsTribe.this.SimpleCheck"></a>
+      <a id="Goto:Goto"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Goto.html"><span class="name">Goto</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@GotoextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfEmpty" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfEmptyextendsTribe.this.SimpleCheck"></a>
+      <a id="IfEmpty:IfEmpty"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfEmpty.html"><span class="name">IfEmpty</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfEmptyextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfEq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfEqextendsTribe.this.Comparison"></a>
+      <a id="IfEq:IfEq"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfEq.html"><span class="name">IfEq</span></a><span class="result"> extends <a href="Tribe$Comparison.html" class="extype" name="o1.robots.tribal.Tribe.Comparison">Comparison</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfEqextendsTribe.this.Comparison" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfFriend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfFriendextendsTribe.this.SimpleCheck"></a>
+      <a id="IfFriend:IfFriend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfFriend.html"><span class="name">IfFriend</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfFriendextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfGT" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfGTextendsTribe.this.Comparison"></a>
+      <a id="IfGT:IfGT"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfGT.html"><span class="name">IfGT</span></a><span class="result"> extends <a href="Tribe$Comparison.html" class="extype" name="o1.robots.tribal.Tribe.Comparison">Comparison</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfGTextendsTribe.this.Comparison" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfLT" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfLTextendsTribe.this.Comparison"></a>
+      <a id="IfLT:IfLT"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfLT.html"><span class="name">IfLT</span></a><span class="result"> extends <a href="Tribe$Comparison.html" class="extype" name="o1.robots.tribal.Tribe.Comparison">Comparison</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfLTextendsTribe.this.Comparison" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfNEmpty" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfNEmptyextendsTribe.this.SimpleCheck"></a>
+      <a id="IfNEmpty:IfNEmpty"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfNEmpty.html"><span class="name">IfNEmpty</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfNEmptyextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfNEq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfNEqextendsTribe.this.Comparison"></a>
+      <a id="IfNEq:IfNEq"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfNEq.html"><span class="name">IfNEq</span></a><span class="result"> extends <a href="Tribe$Comparison.html" class="extype" name="o1.robots.tribal.Tribe.Comparison">Comparison</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfNEqextendsTribe.this.Comparison" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfNFriend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfNFriendextendsTribe.this.SimpleCheck"></a>
+      <a id="IfNFriend:IfNFriend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfNFriend.html"><span class="name">IfNFriend</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfNFriendextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfNWall" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfNWallextendsTribe.this.SimpleCheck"></a>
+      <a id="IfNWall:IfNWall"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfNWall.html"><span class="name">IfNWall</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfNWallextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfRandom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfRandomextendsTribe.this.SimpleCheck"></a>
+      <a id="IfRandom:IfRandom"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfRandom.html"><span class="name">IfRandom</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfRandomextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.IfWall" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfWallextendsTribe.this.SimpleCheck"></a>
+      <a id="IfWall:IfWall"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$IfWall.html"><span class="name">IfWall</span></a><span class="result"> extends <a href="Tribe$SimpleCheck.html" class="extype" name="o1.robots.tribal.Tribe.SimpleCheck">SimpleCheck</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@IfWallextendsTribe.this.SimpleCheck" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.JumpInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JumpInstructionextendsTribe.this.SimpleInstructionwithTribe.this.ContinuesTurn"></a>
+      <a id="JumpInstruction:JumpInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$JumpInstruction.html"><span class="name">JumpInstruction</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a> with <a href="Tribe$ContinuesTurn.html" class="extype" name="o1.robots.tribal.Tribe.ContinuesTurn">ContinuesTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@JumpInstructionextendsTribe.this.SimpleInstructionwithTribe.this.ContinuesTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.LabelDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LabelDefinitionextendsTribe.this.Pass"></a>
+      <a id="LabelDefinition:LabelDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$LabelDefinition.html"><span class="name">LabelDefinition</span></a><span class="result"> extends <a href="Tribe$Pass.html" class="extype" name="o1.robots.tribal.Tribe.Pass">Pass</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@LabelDefinitionextendsTribe.this.Pass" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.LoadInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LoadInstructionextendsTribe.this.GenericInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn"></a>
+      <a id="LoadInstruction:LoadInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$LoadInstruction.html"><span class="name">LoadInstruction</span></a><span class="result"> extends <a href="Tribe$GenericInstruction.html" class="extype" name="o1.robots.tribal.Tribe.GenericInstruction">GenericInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$ContinuesTurn.html" class="extype" name="o1.robots.tribal.Tribe.ContinuesTurn">ContinuesTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@LoadInstructionextendsTribe.this.GenericInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Move" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MoveextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn"></a>
+      <a id="Move:Move"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Move.html"><span class="name">Move</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$EndsTurn.html" class="extype" name="o1.robots.tribal.Tribe.EndsTurn">EndsTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@MoveextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.NoCommand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NoCommandextendsTribe.this.Pass"></a>
+      <a id="NoCommand:NoCommand"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$NoCommand.html"><span class="name">NoCommand</span></a><span class="result"> extends <a href="Tribe$Pass.html" class="extype" name="o1.robots.tribal.Tribe.Pass">Pass</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@NoCommandextendsTribe.this.Pass" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Param" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Param=Either[String,Int]"></a>
+      <a id="Param:Param"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Param</span><span class="result"> = <span class="extype" name="scala.util.Either">Either</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@Param=Either[String,Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Pass" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PassextendsTribe.this.JumpInstructionwithTribe.this.ToNextLine"></a>
+      <a id="Pass:Pass"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Pass.html"><span class="name">Pass</span></a><span class="result"> extends <a href="Tribe$JumpInstruction.html" class="extype" name="o1.robots.tribal.Tribe.JumpInstruction">JumpInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@PassextendsTribe.this.JumpInstructionwithTribe.this.ToNextLine" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.RadarCount" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RadarCountextendsTribe.this.LoadInstruction"></a>
+      <a id="RadarCount:RadarCount"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$RadarCount.html"><span class="name">RadarCount</span></a><span class="result"> extends <a href="Tribe$LoadInstruction.html" class="extype" name="o1.robots.tribal.Tribe.LoadInstruction">LoadInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@RadarCountextendsTribe.this.LoadInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Return" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReturnextendsTribe.this.JumpInstruction"></a>
+      <a id="Return:Return"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Return.html"><span class="name">Return</span></a><span class="result"> extends <a href="Tribe$JumpInstruction.html" class="extype" name="o1.robots.tribal.Tribe.JumpInstruction">JumpInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ReturnextendsTribe.this.JumpInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Score" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScoreextendsTribe.this.LoadInstruction"></a>
+      <a id="Score:Score"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Score.html"><span class="name">Score</span></a><span class="result"> extends <a href="Tribe$LoadInstruction.html" class="extype" name="o1.robots.tribal.Tribe.LoadInstruction">LoadInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ScoreextendsTribe.this.LoadInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Set" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetextendsTribe.this.LoadInstruction"></a>
+      <a id="Set:Set"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Set.html"><span class="name">Set</span></a><span class="result"> extends <a href="Tribe$LoadInstruction.html" class="extype" name="o1.robots.tribal.Tribe.LoadInstruction">LoadInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@SetextendsTribe.this.LoadInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.SimpleCheck" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleCheckextendsTribe.this.BranchInstruction"></a>
+      <a id="SimpleCheck:SimpleCheck"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$SimpleCheck.html"><span class="name">SimpleCheck</span></a><span class="result"> extends <a href="Tribe$BranchInstruction.html" class="extype" name="o1.robots.tribal.Tribe.BranchInstruction">BranchInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@SimpleCheckextendsTribe.this.BranchInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.SimpleInstruction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleInstructionextendsTribe.this.GenericInstruction"></a>
+      <a id="SimpleInstruction:SimpleInstruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$SimpleInstruction.html"><span class="name">SimpleInstruction</span></a><span class="result"> extends <a href="Tribe$GenericInstruction.html" class="extype" name="o1.robots.tribal.Tribe.GenericInstruction">GenericInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@SimpleInstructionextendsTribe.this.GenericInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Spin" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SpinextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn"></a>
+      <a id="Spin:Spin"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Spin.html"><span class="name">Spin</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$EndsTurn.html" class="extype" name="o1.robots.tribal.Tribe.EndsTurn">EndsTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@SpinextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Switch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SwitchextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn"></a>
+      <a id="Switch:Switch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Switch.html"><span class="name">Switch</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$ContinuesTurn.html" class="extype" name="o1.robots.tribal.Tribe.ContinuesTurn">ContinuesTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@SwitchextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Talk" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TalkextendsTribe.this.GenericInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn"></a>
+      <a id="Talk:Talk"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Talk.html"><span class="name">Talk</span></a><span class="result"> extends <a href="Tribe$GenericInstruction.html" class="extype" name="o1.robots.tribal.Tribe.GenericInstruction">GenericInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$ContinuesTurn.html" class="extype" name="o1.robots.tribal.Tribe.ContinuesTurn">ContinuesTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@TalkextendsTribe.this.GenericInstructionwithTribe.this.ToNextLinewithTribe.this.ContinuesTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.TerminateProgram" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TerminateProgramextendsInstructionwithTribe.this.EndsTurn"></a>
+      <a id="TerminateProgram:TerminateProgram"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$TerminateProgram.html"><span class="name">TerminateProgram</span></a><span class="result"> extends <a href="Instruction.html" class="extype" name="o1.robots.tribal.Instruction">Instruction</a> with <a href="Tribe$EndsTurn.html" class="extype" name="o1.robots.tribal.Tribe.EndsTurn">EndsTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@TerminateProgramextendsInstructionwithTribe.this.EndsTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.ToNextLine" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ToNextLineextendsTribe.this.GenericInstruction"></a>
+      <a id="ToNextLine:ToNextLine"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$ToNextLine.html"><span class="name">ToNextLine</span></a><span class="result"> extends <a href="Tribe$GenericInstruction.html" class="extype" name="o1.robots.tribal.Tribe.GenericInstruction">GenericInstruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ToNextLineextendsTribe.this.GenericInstruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe.Wait" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WaitextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn"></a>
+      <a id="Wait:Wait"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$Wait.html"><span class="name">Wait</span></a><span class="result"> extends <a href="Tribe$SimpleInstruction.html" class="extype" name="o1.robots.tribal.Tribe.SimpleInstruction">SimpleInstruction</a> with <a href="Tribe$ToNextLine.html" class="extype" name="o1.robots.tribal.Tribe.ToNextLine">ToNextLine</a> with <a href="Tribe$EndsTurn.html" class="extype" name="o1.robots.tribal.Tribe.EndsTurn">EndsTurn</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@WaitextendsTribe.this.SimpleInstructionwithTribe.this.ToNextLinewithTribe.this.EndsTurn" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@##():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="o1.robots.tribal.Tribe.RoboSpeakGrammar" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RoboSpeakGrammar"></a>
+      <a id="RoboSpeakGrammar:RoboSpeakGrammar"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Tribe$RoboSpeakGrammar$.html"><span class="name">RoboSpeakGrammar</span></a><span class="result"> extends <span class="extype" name="scala.util.parsing.combinator.JavaTokenParsers">JavaTokenParsers</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@RoboSpeakGrammar" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@clone():Object" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="o1.robots.tribal.Tribe#instructionAt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="instructionAt(lineNumber:Int):o1.robots.tribal.Instruction"></a>
+      <a id="instructionAt(Int):Instruction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">instructionAt</span><span class="params">(<span name="lineNumber">lineNumber: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Instruction.html" class="extype" name="o1.robots.tribal.Instruction">Instruction</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@instructionAt(lineNumber:Int):o1.robots.tribal.Instruction" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the instruction at the given line number.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the instruction at the given line number. If there is no such line in the program,
+an instruction is returned that terminates the RoboSpeak program when executed.</p></div></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="o1.robots.tribal.Tribe#isPacifist" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isPacifist:Boolean"></a>
+      <a id="isPacifist:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isPacifist</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@isPacifist:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="o1.robots.tribal.Tribe#name" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="name:String"></a>
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@name:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the name of the tribe</p>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="o1.robots.tribal.Tribe#newName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="newName():String"></a>
+      <a id="newName():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">newName</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@newName():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a new, unused name for a new member of this tribe.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a new, unused name for a new member of this tribe. This name consists
+of the tribe's name and a unique ID number for the new member.</p></div></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="o1.robots.tribal.Tribe#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@toString():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The description is simply the tribe's name.</p><div class="fullcomment"><div class="comment cmt"><p>The description is simply the tribe's name.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="o1.robots.tribal.Tribe">Tribe</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#o1.robots.tribal.Tribe@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> This document is part of the course materials for CSE-A1110 Ohjelmointi 1 at Aalto University. </div>
+
+
+    </body>
+      </html>

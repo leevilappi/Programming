@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="scala.application">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Football3/o1/football3/gui/FootballApp.scala"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="o1.football3.gui.FootballApp"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Football3"/>
+</launchConfiguration>

@@ -1,0 +1,49 @@
+package o1.train
+
+object TrainSittingCarTest extends App{
+  
+  val SC = new SittingCar(5, 4)
+  
+
+  for(i <- 1 to 4){
+    for(j <- 0 to 3)
+      if(SC.seatReservations(i)(j)){
+        println("O")
+      }else{
+        println("-")
+      }
+  }
+  
+  val places = "abcdef"
+             // 012345
+  
+  println("Number of places: " + SC.numberOfPlaces)
+  println("Number of free places: " + SC.numberOfFreePlaces)
+  println("Fullness: " + SC.fullness)
+
+  println(SC.reservePlace(5, places(3)))
+  println(SC.reservePlace(3, places(2)))
+  
+  for(i <- 0 to 3){
+    println(SC.reservePlace(1, places(i)))
+  }
+  
+  println("| |" + SC(.0)(0).mkString + "|" + grid(0)(1).mkString + "|" + grid(0)(2).mkString + "|")
+  println("| |" + grid(1)(0).mkString + "|" + grid(1)(1).mkString + "|" + grid(1)(2).mkString + "|")
+  println("v |" + grid(2)(0).mkString + "|" + grid(2)(1).mkString + "|" + grid(2)(2).mkString + "|")
+  
+  println("Fullness: " + SC.fullness)
+  println("Number of free places: " + SC.numberOfFreePlaces)
+ 
+  SC.reservePlaces(4) 
+  
+   for(i <- 1 to 4){
+    for(j <- 0 to 3)
+      if(SC.seatReservations(i)(j)){
+        println("O")
+      }else{
+        println("-")
+      }
+  }
+  
+}

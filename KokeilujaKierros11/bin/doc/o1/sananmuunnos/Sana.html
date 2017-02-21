@@ -1,0 +1,561 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Sana - o1.sananmuunnos.Sana</title>
+          <meta name="description" content="Sana - o1.sananmuunnos.Sana" />
+          <meta name="keywords" content="Sana o1.sananmuunnos.Sana" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'o1.sananmuunnos.Sana';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body onload="/* Customizations for CSE-A1110: */ /* hide classtags: */ $('span.symbol span.params:contains(\'ClassTag\')').css('display', 'none');  /* fix style to accommodate long parameter names: */ $('dl.paramcmts > dd').css('margin-left', '110px'); /* pretend that toString has no parameter list: */ $('a[id=\'toString():String\']').closest('li').find('h4.signature span.symbol span.params').css('display', 'none'); /* hide most UI packages by default (needs improvement): */ $('div#tpl ol.packages li.pack a.tplshow').each(function() { if ($(this).text().match(/o1..*ui/) && $(this).text().match(/(RandomText|GoodStuff)/) == null) $(this).closest('li.pack').find('a.packhide').trigger('click') }); /* hide all inherited App stuff by default: */ $('ol#linearization').find('li').each(function() { if ($(this).text() == 'App' || $(this).text() == 'SimpleSwingApplication') $(this).closest('ol#linearization').find('li.in').trigger('click')  }); " class="type">
+      <div id="definition">
+        <a href="Sana$.html" title="See companion object"><img alt="Class/Object" src="../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../package.html" class="extype" name="o1">o1</a>.<a href="package.html" class="extype" name="o1.sananmuunnos">sananmuunnos</a></p>
+        <h1><a href="Sana$.html" title="See companion object">Sana</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Sana$.html" title="See companion object">object Sana</a>
+            | <a href="package.html" class="extype" name="o1.sananmuunnos">package sananmuunnos</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Sana</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Kukin <code>Sana</code>-tyyppinen olio kuvaa yhtä suomen kielen sanaa. Tavallisesta merkkijonosta <code>Sana</code>-olio
+eroaa eritoten siten, että sillä on metodi <code>muunnos</code>, jonka avulla voi muodostaa lasten ja
+lapsenmielisten suosimia <b>sananmuunoksia</b>. Sananmuunnos saadaan yhdistämällä kahden sanan äänteitä
+(tässä: merkkejä) tiettyjen sääntöjen mukaan.</p><p>Sananmuunnos muodostetaan pääpiirteissään siten, että otetaan kaksi sanaa, vaihdetaan niiden
+alkupään merkkejä keskenään ja laitetaan syntyneet sanat peräkkäin. Prosessiin liittyy kuitenkin
+koko joukko yksityiskohtia, joista lisää alla.</p><h4>sananmuunoksen muodostamisen perusteet</h4><p>Helppo perustapaus: sanat ovat &quot;henri&quot; and &quot;kontinen&quot;. Otetaan kummastakin ensimmäinen konsonantti
+ja sitä seuraava vokaali: saadaan &quot;he&quot; ja &quot;ko&quot;. Vaihdetaan päittäin ja saadaan sananmuunnos:</p><p><code>henri kontinen --&gt; konri hentinen</code></p><p><code>tarja halonen --&gt; harja talonen</code></p><p>Jos sana alkaa usealla peräkkäisellä konsonantilla, siirretään ne kaikki toiseen sanaan.
+Jos taas konsonantteja ei alussa ole, vain ensimmäinen vokaali siirtyy:</p><p><code>frakki kontti --&gt; kokki frantti</code></p><p><code>ovi kello --&gt; kevi ollo</code></p><p>Yllä olevissa esimerkeissä kaikki vokaalit olivat &quot;lyhyitä&quot; eli niissä oli vain yksi merkki.
+Jos sama ensivokaalimerkki esiintyy sanassa useasti peräkkäin, muodostuu &quot;pitkä&quot; vokaali.
+Vokaalin pituus säilyy samana myös toiseen sanaan siirtäessä, vaikka itse vokaalimerkki
+voikin vaihtua:</p><p><code>haamu kontti -&gt; koomu hantti</code></p><p>Tarkempi selonteko edellisestä: Sanassa &quot;haamu&quot; on pitkä vokaali &quot;aa&quot;. Kun sanan alkupää
+korvataan kirjaimilla k ja o, säilyy vokaalin pituus ja saadaan &quot;koomu&quot; eikä &quot;komu&quot;.
+Sanassa &quot;kontti&quot; on puolestaan lyhyt vokaali &quot;o&quot;. Kun sen alkupää korvataan merkeillä
+h ja a, saadaan &quot;hantti&quot; eikä &quot;haantti&quot;.</p><p>Vaikka ensimmäisessä tavussa saattaakin olla useita eri vokaaleja, vain ensimmäisellä on
+tässä merkitystä:</p><p><code>hauva kontti --&gt; kouva hantti</code></p><p><code>puoskari kontti --&gt; kooskari puntti</code></p><h4>Vokaalisointu</h4><p>Suomessa on kahdenlaisia vokaaleja: <b>etuvokaaleja</b> (e, i, ä, y, ö) ja <b>takavokaaleja</b>
+(a, u, o). (Nimet liittyvät siihen, missä osassa suuta vokaalit äännetään.) Johtuen
+<i>vokaalisoinnuksi</i> kutsutusta kielellisestä ilmiöstä takavokaalit a, u ja o eivät
+tavallisesti esiinny samassa sanassa niitä vastaavien etuvokaalien ä, y ja ö kanssa.</p><p>sananmuunoksiin vokaalisointu liittyy seuraavasti. Jos mikä tahansa takavokaaleista a, u tai o
+sijoitetaan sanan alkuun, niin kaikki sanassa esiintyvät etuvokaalit ä, y ja ö on vaihdettava
+niitä vastaaviksi takavokaaleiksi. Niin käy tässä ä-kirjaimelle, joka muuttuu a:ksi.</p><p><code>köyhä kontti --&gt; kouha köntti</code></p><p>Sama toimii myös toisin päin eli etuvokaaleista takavokaaleiksi. Tässä syntyvän sananmuunoksen
+ensimmäiseen osaan tulee vain etuvokaaleita ja toiseen vain takavokaaleita:</p><p><code>hauva läähättää --&gt; läyvä haahattaa</code></p><p>Äänteen muuntumista toisen kaltaiseksi sanotaan <b>assimilaatioksi</b>. Vokaalit e ja i
+eivät assimiloidu suuntaan tai toiseen eivätkä aiheuta assimilaatiota toisissa vokaaleissa.</p><p>Huomaa, että vokaalisointua &quot;sovelletaan&quot; jo ennen kuin sananmuunoksen kaksi osaa yhdistetään.
+Vokaalisointu ei siis aiheuta muutoksia &quot;sanarajojen yli&quot;, kuten yllä olevasta esimerkistä voi
+havaita.</p><h4>Lisäesimerkkejä</h4><p>Alla on vielä muutama esimerkki sananmuunoksista:</p><p><code>frakki stressi --&gt; strekki frassi</code></p><p><code>äyskäri kontti --&gt; kouskari äntti</code></p><p><code>hattu sfääri --&gt; sfätty haari</code></p><p><code>ovi silmä --&gt; sivi olma</code></p><p><code>haamu prätkä --&gt; präämy hatka</code></p><p><code>puoskari sfääri --&gt; sfäöskäri puuri</code></p><p><code>puoskari äyskäri --&gt; äöskäri puuskari</code></p><h4>Tämä riittäköön tähän</h4><p>Todellisen elämän sananmuunoksiin liittyy tässä kuvattujen lisäksi vielä eräitä muitakin
+sääntöjä, mutta niitä ei käsitellä tai käytetä tässä. On erilaisia erikoistapauksia kuten lainasanat,
+jotka eivät noudata vokaalisointua (&quot;vampyyri&quot;), sekä yhdyssanat (&quot;jääkiekko&quot;).
+Tämän luokan toteutuksessa kuitenkin tällaiset tapaukset jätetään huomioimatta ja oletetaan,
+että vokaalisointu on aina tiukasti voimassa.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="o1.sananmuunnos.Sana"><span>Sana</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="o1.sananmuunnos.Sana#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(merkkijono:String):o1.sananmuunnos.Sana"></a>
+      <a id="&lt;init&gt;:Sana"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Sana</span><span class="params">(<span name="merkkijono">merkkijono: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@&lt;init&gt;(merkkijono:String):o1.sananmuunnos.Sana" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">merkkijono</dt><dd class="cmt"><p>sana, joka toimii toisena puoliskona sananmuunoksessa (esim. &quot;kontti&quot;).
+                   Tämä merkkijono saa sisältää isojakin kirjaimia, mutta <code>Sana</code>-olio
+                   tulkitseekaikki kirjaimet kuin ne olisivat pieniä.</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="o1.sananmuunnos.Sana#muunnos" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="muunnos(toinen:o1.sananmuunnos.Sana):String"></a>
+      <a id="muunnos(Sana):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">muunnos</span><span class="params">(<span name="toinen">toinen: <a href="" class="extype" name="o1.sananmuunnos.Sana">Sana</a></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@muunnos(toinen:o1.sananmuunnos.Sana):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa sananmuunoksen, joka saadaan yhdistämällä tämä sana annettuun toiseen sanaan
+tavalla, joka selitetään tämän luokan esittelyssä.</p><div class="fullcomment"><div class="comment cmt"><p>Palauttaa sananmuunoksen, joka saadaan yhdistämällä tämä sana annettuun toiseen sanaan
+tavalla, joka selitetään tämän luokan esittelyssä. Tuloksessa esiintyy vain pieniä merkkejä.
+Esimerkiksi jos tämän sanan merkit ovat <code>&quot;tarja&quot;</code> ja toisen sanan <code>&quot;halonen&quot;</code>, palauttaa
+merkkijonon <code>&quot;harja talonen&quot;</code>.</p></div></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="o1.sananmuunnos.Sana#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Palauttaa kuvauksen, josta näkyvät ne tämän sanan osat, jotka ovat sananmuunoksen tekemisen
+kannalta oleellisia: 1) alun konsonantit (jos niitä on), 2) ensimmäinen vokaalimerkki ja sitä
+seuraavat identtiset vokaalit, sekä 3) loppuosa.</p><div class="fullcomment"><div class="comment cmt"><p>Palauttaa kuvauksen, josta näkyvät ne tämän sanan osat, jotka ovat sananmuunoksen tekemisen
+kannalta oleellisia: 1) alun konsonantit (jos niitä on), 2) ensimmäinen vokaalimerkki ja sitä
+seuraavat identtiset vokaalit, sekä 3) loppuosa. (Ks. tämän luokan kuvaus yltä.) Kuvauksessa näiden
+osien väliin laitetaan <code>|</code>-merkit. Esimerkiksi sanan ollessa <code>&quot;struuma&quot;</code> kuvaus on <code>&quot;str|uu|ma&quot;</code>.
+Jos sanan alussa ei ole konsonantteja, alkaa palautettu merkkijono <code>|</code>-merkillä: <code>&quot;|a|lku&quot;</code>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="o1.sananmuunnos.Sana">Sana</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#o1.sananmuunnos.Sana@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> This document is part of the course materials for CSE-A1110 Ohjelmointi 1 at Aalto University. </div>
+
+
+    </body>
+      </html>

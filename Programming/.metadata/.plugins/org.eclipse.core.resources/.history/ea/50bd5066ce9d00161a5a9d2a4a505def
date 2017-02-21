@@ -1,0 +1,42 @@
+package o1.auctionhouse
+	
+	
+class FixedPriceSale(description: String, val price: Int, duration: Int) extends InstantPurchase(description: String){
+	  
+	  private var remaining = duration                 // stepper
+	  private var buyerName: Option[String] = None     // fixed value (once set) 
+	
+	  def advanceOneDay() = {
+	    if (this.isOpen) {
+	      this.remaining = this.remaining - 1
+	    }
+	  }
+
+	  def daysLeft = this.remaining
+	  
+	  def isExpired = this.remaining <= 0
+
+	  
+
+	  // From InstantPurchase
+
+	  def buy(buyer: String) = {
+	    if (this.isOpen) {
+	      this.buyerName = Some(buyer)
+	      true
+	    } else {
+	      false
+	    }
+	  }
+
+	  def buyer = this.buyerName
+	  
+	  def isOpen = !this.isExpired && !this.buyer.isDefined 
+
+	  //From ItemForSale
+
+	  override def toString = this.description
+	  
+	}
+	
+	
