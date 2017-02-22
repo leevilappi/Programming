@@ -40,7 +40,7 @@ abstract class Polynomial()
   def +(right: Polynomial): Polynomial = this.+(right) // Task 3
     // sum of left (this) and right
 
-  def *(right: Polynomial): Polynomial = this.*(right) // Task 3
+  def *(right: Polynomial): Polynomial = ??? // Task 3
     // product of left (this) and right
 
 }

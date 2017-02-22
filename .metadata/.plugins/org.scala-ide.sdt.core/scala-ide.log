@@ -15123,3 +15123,41 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2017-02-22 14:33:01,654  WARN [Worker-60] - ScalaProject - Project r1-polynomials runs on platform default installation.
 2017-02-22 14:34:27,990  WARN [Worker-63] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
 2017-02-22 14:34:27,990  WARN [Worker-63] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 14:39:51,121  WARN [Worker-57] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 14:39:51,121  WARN [Worker-57] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:19:14,354  WARN [Worker-1] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-22 21:19:14,355  WARN [Worker-1] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-22 21:19:14,817  WARN [Worker-1] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-22 21:19:14,817  WARN [Worker-1] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-22 21:19:14,868  WARN [Worker-1] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-22 21:19:14,868  WARN [Worker-1] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-22 21:19:15,477  WARN [Worker-4] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:19:15,477  WARN [Worker-4] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:19:15,512  WARN [Worker-4] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:19:15,512  WARN [Worker-4] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:19:15,520  WARN [Worker-4] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:19:15,520  WARN [Worker-4] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:19:15,575  WARN [Worker-4] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-22 21:19:15,575  WARN [Worker-4] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-22 21:19:15,576  WARN [main] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:19:15,576  WARN [main] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:19:15,606  WARN [Worker-4] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-22 21:19:15,607  WARN [Worker-4] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-22 21:19:15,612  WARN [Worker-4] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-22 21:19:15,612  WARN [Worker-4] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-22 21:28:24,572  WARN [Worker-2] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:28:24,572  WARN [Worker-2] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:28:47,602  WARN [Worker-11] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:28:47,602  WARN [Worker-11] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:34:16,428  WARN [Worker-14] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:34:16,428  WARN [Worker-14] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:34:23,775  WARN [Worker-13] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:34:23,775  WARN [Worker-13] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:35:08,944  WARN [Worker-14] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:35:08,944  WARN [Worker-14] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:36:57,222  WARN [Worker-11] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:36:57,222  WARN [Worker-11] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:37:07,166  WARN [Worker-16] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:37:07,166  WARN [Worker-16] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-22 21:39:10,603  WARN [Worker-11] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-22 21:39:10,603  WARN [Worker-11] - ScalaProject - Project r1-polynomials runs on platform default installation.
