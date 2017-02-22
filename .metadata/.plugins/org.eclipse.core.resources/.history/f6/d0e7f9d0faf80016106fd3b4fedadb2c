@@ -51,7 +51,7 @@ class Variable(name: String) extends Polynomial()
 {
    // Task 1
    // ??? record current value of this variable somewhere here
-   def set(new_val: Int) { new Constant(new_val: Int).value }  // set the value of this variable
+   def set(new_val: Int) { new Constant(new_val: Int); value = new_val }  // set the value of this variable
    def value = ???           // return current value of this variable
    def asString = name
 }
