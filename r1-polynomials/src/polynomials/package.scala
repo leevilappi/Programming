@@ -37,10 +37,10 @@ abstract class Polynomial()
   def value: Int        // implemented by extending classes
   def asString: String  // implemented by extending classes
 
-  def +(right: Polynomial): Polynomial = this.+(right) // Task 3
+  def +(right: Polynomial): Polynomial = new Sum(this, right) // Task 3
     // sum of left (this) and right
 
-  def *(right: Polynomial): Polynomial = this.*(right) // Task 3
+  def *(right: Polynomial): Polynomial = new Product(this, right) // Task 3
     // product of left (this) and right
 
 }

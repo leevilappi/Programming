@@ -15161,3 +15161,53 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2017-02-22 21:37:07,166  WARN [Worker-16] - ScalaProject - Project r1-polynomials runs on platform default installation.
 2017-02-22 21:39:10,603  WARN [Worker-11] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
 2017-02-22 21:39:10,603  WARN [Worker-11] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:30:56,884  WARN [main] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:30:56,887  WARN [main] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:30:56,891  WARN [main] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:30:56,891  WARN [main] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:30:57,027  WARN [main] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 08:30:57,028  WARN [main] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 08:30:57,082  WARN [main] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 08:30:57,082  WARN [main] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 08:30:57,302  WARN [main] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 08:30:57,302  WARN [main] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 08:30:57,318  WARN [main] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 08:30:57,318  WARN [main] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 08:30:57,326  WARN [main] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:30:57,326  WARN [main] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:30:58,382  WARN [main] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:30:58,382  WARN [main] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:31:00,575  WARN [Worker-3] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:31:00,575  WARN [Worker-3] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:31:14,065  WARN [Worker-3] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 08:31:14,066  WARN [Worker-3] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 08:31:14,073  WARN [Worker-3] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 08:31:14,073  WARN [Worker-3] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 08:31:14,247  WARN [Worker-7] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 08:31:14,248  WARN [Worker-7] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 08:31:14,784  WARN [Worker-7] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:31:14,785  WARN [Worker-7] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:31:14,858  WARN [Worker-7] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 08:31:14,858  WARN [Worker-7] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 08:31:17,211  WARN [Java indexing] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 08:31:17,211  WARN [Java indexing] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 08:31:17,722  WARN [Java indexing] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 08:31:17,722  WARN [Java indexing] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 08:56:12,903  WARN [Worker-16] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:56:12,903  WARN [Worker-16] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:56:45,580  WARN [Worker-16] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:56:45,580  WARN [Worker-16] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:56:59,591  WARN [Worker-22] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 08:56:59,591  WARN [Worker-22] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 08:58:02,822  WARN [ModalContext] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 08:58:02,830  WARN [ModalContext] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 08:58:02,858  WARN [ModalContext] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 08:58:02,858  WARN [ModalContext] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 08:58:03,075 ERROR [Worker-24] - System.err - log4j:WARN No appenders could be found for logger (org.eclipse.jgit.util.FS).
+2017-02-23 08:58:03,075 ERROR [Worker-24] - System.err - log4j:WARN Please initialize the log4j system properly.
+2017-02-23 08:58:03,346  WARN [Worker-18] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 08:58:03,346  WARN [Worker-18] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 08:58:03,631  WARN [Worker-24] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 08:58:03,631  WARN [Worker-24] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 08:58:06,194  WARN [Worker-21] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 08:58:06,194  WARN [Worker-21] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
