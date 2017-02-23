@@ -1,6 +1,0 @@
-package kierros2
-
-class AudioEffects {
-  
-  val second: Int = 44100
-}
