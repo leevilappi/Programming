@@ -1038,3 +1038,12 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.e4.ui.workbench 2 0 2017-02-23 08:31:00.856
 !MESSAGE Removing part descriptor with the 'org.eclipse.recommenders.snipmatch.rcp.views.snippets' id and the 'Snippets' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.scala-ide.sdt.core 1 0 2017-02-23 09:44:29.399
+!MESSAGE Turning on project-specific settings for r2-wordOps because of requested Scala Installation change from settings update
+
+!ENTRY org.scala-ide.sdt.core 1 0 2017-02-23 09:44:29.402
+!MESSAGE Removing  from compiler arguments of r2-wordOps because of: requested Scala Installation change from settings update
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-02-23 09:44:45.754
+!MESSAGE The workspace will exit with unsaved changes in this session.

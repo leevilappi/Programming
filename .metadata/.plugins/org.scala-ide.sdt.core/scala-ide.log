@@ -15211,3 +15211,15 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2017-02-23 08:58:03,631  WARN [Worker-24] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
 2017-02-23 08:58:06,194  WARN [Worker-21] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
 2017-02-23 08:58:06,194  WARN [Worker-21] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 09:07:02,728  WARN [main] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 09:07:02,728  WARN [main] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 09:36:58,552  WARN [ModalContext] - ScalaProject - Project r2-wordOps has platform default sourceLevel.
+2017-02-23 09:36:58,552  WARN [ModalContext] - ScalaProject - Project r2-wordOps runs on platform default installation.
+2017-02-23 09:36:58,565  WARN [ModalContext] - ScalaProject - Project r2-wordOps has platform default sourceLevel.
+2017-02-23 09:36:58,566  WARN [ModalContext] - ScalaProject - Project r2-wordOps runs on platform default installation.
+2017-02-23 09:36:58,843  WARN [Worker-35] - ScalaProject - Project r2-wordOps has platform default sourceLevel.
+2017-02-23 09:36:58,843  WARN [Worker-35] - ScalaProject - Project r2-wordOps runs on platform default installation.
+2017-02-23 09:36:59,213  WARN [Worker-35] - ScalaProject - Project r2-wordOps has platform default sourceLevel.
+2017-02-23 09:36:59,214  WARN [Worker-35] - ScalaProject - Project r2-wordOps runs on platform default installation.
+2017-02-23 09:37:03,157  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2017-02-23 09:37:03,359  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - CustomSemanticAction - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
