@@ -35,7 +35,6 @@ package object wordOps {
   
 
   def reverse(w: Short): Short = {
-
      (w ^ 0x0000.toShort).toShort
   }
     

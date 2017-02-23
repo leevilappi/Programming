@@ -23,6 +23,7 @@ $RECYCLE.BIN/
 
 # OSX
 # =========================
+.cache-main
 .metadata
 *.metadata
 $.metadata
