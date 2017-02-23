@@ -19,16 +19,8 @@ package object wordOps {
    * 
    */
 
-  def popCount(w: Int): Int = {
-      var count = 0
-      while(w > 0){
-        if((w & 1) == 1){
-          count +=1 
-        }
-        w >> 1
-      }
-      count
-  }
+  def popCount(w: Int): Int = (0 until 32).map(offset => (w >> offset) & 1).sum
+      
   
   /*
    * Task 2: Reverse bit positions
@@ -40,9 +32,13 @@ package object wordOps {
    * the value of the bit at position 15-j in w.
    * 
    */
-
-  def reverse(w: Short): Short = ???
   
+
+  def reverse(w: Short): Short = {
+
+     (w ^ 0x0000.toShort).toShort
+  }
+    
   /*
    * Task 3: Left rotation
    *
