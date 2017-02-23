@@ -15223,3 +15223,18 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2017-02-23 09:36:59,214  WARN [Worker-35] - ScalaProject - Project r2-wordOps runs on platform default installation.
 2017-02-23 09:37:03,157  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
 2017-02-23 09:37:03,359  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - CustomSemanticAction - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2017-02-23 09:45:45,866  WARN [Worker-0] - ScalaProject - Project r1-sequences has platform default sourceLevel.
+2017-02-23 09:45:45,868  WARN [Worker-0] - ScalaProject - Project r1-sequences runs on platform default installation.
+2017-02-23 09:45:46,025  WARN [Worker-0] - ScalaProject - Project r1-longestIncreasingSubsequence has platform default sourceLevel.
+2017-02-23 09:45:46,026  WARN [Worker-0] - ScalaProject - Project r1-longestIncreasingSubsequence runs on platform default installation.
+2017-02-23 09:45:46,048  WARN [Worker-0] - ScalaProject - Project r1-polynomials has platform default sourceLevel.
+2017-02-23 09:45:46,049  WARN [Worker-0] - ScalaProject - Project r1-polynomials runs on platform default installation.
+2017-02-23 09:45:46,068  WARN [Worker-0] - ScalaProject - Project r1-pascal has platform default sourceLevel.
+2017-02-23 09:45:46,068  WARN [Worker-0] - ScalaProject - Project r1-pascal runs on platform default installation.
+2017-02-23 09:45:50,232 ERROR [Worker-4] - System.err - log4j:WARN No appenders could be found for logger (org.eclipse.jgit.util.FS).
+2017-02-23 09:45:50,233 ERROR [Worker-4] - System.err - log4j:WARN Please initialize the log4j system properly.
+2017-02-23 10:11:33,429  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - TraverserImpl$ - Skipping annotation, position length = 0, position offset = 551
+2017-02-23 10:20:54,134  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - TraverserImpl$ - Skipping annotation, position length = 0, position offset = 580
+2017-02-23 10:20:54,638  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - TraverserImpl$ - Skipping annotation, position length = 0, position offset = 580
+2017-02-23 10:20:55,142  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - TraverserImpl$ - Skipping annotation, position length = 0, position offset = 580
+2017-02-23 10:20:55,646  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - TraverserImpl$ - Skipping annotation, position length = 0, position offset = 580

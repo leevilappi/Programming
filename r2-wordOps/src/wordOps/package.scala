@@ -19,7 +19,16 @@ package object wordOps {
    * 
    */
 
-  def popCount(w: Int): Int = ???
+  def popCount(w: Int): Int = {
+      var count = 0
+      while(w > 0){
+        if((w & 1) == 1){
+          count +=1 
+        }
+        w >> 1
+      }
+      count
+  }
   
   /*
    * Task 2: Reverse bit positions

@@ -1047,3 +1047,22 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.core.resources 2 10035 2017-02-23 09:44:45.754
 !MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2017-02-23 09:45:05.391 -----------------------------------------------
+eclipse.buildId=4.5.0-vfinal-2016-12-13T10:59:29Z-Typesafe
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fi_FI
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-02-23 09:45:41.308
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-23 09:45:49.989
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Leevi'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.scala-ide.sdt.core 1 0 2017-02-23 10:25:04.862
+!MESSAGE Timeout while resolving hyperlink in C:\Users\Leevi\Desktop\Programming\r2-wordOps\src\wordOps\package.scala at: offset: 276, length: 0
