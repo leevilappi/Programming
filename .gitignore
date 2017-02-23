@@ -24,6 +24,7 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 .cache-main
+.recommenders
 .metadata
 *.metadata
 $.metadata
@@ -52,3 +53,4 @@ Temporary Items
 *.cache-main
 *.cache-main
 r2-wordOps/.cache-main
+.recommenders/index/http___download_eclipse_org_recommenders_models_luna_/segments_2
