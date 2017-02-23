@@ -19,7 +19,7 @@ package object wordOps {
    * 
    */
 
-  def popCount(w: Int): Int = (0 until 32).map(offset => (w >> offset) & 1).sum
+  def popCount(w: Int): Int = (0 until 32).map(x => (w >> x) & 1).sum
       
   
   /*
@@ -35,7 +35,7 @@ package object wordOps {
   
 
   def reverse(w: Short): Short = {
-     (w ^ 0x0000.toShort).toShort
+    (~w).toShort
   }
     
   /*
