@@ -1,1 +1,0 @@
-Index.PACKAGES = {"o1" : [], "o1.election" : [{"class" : "o1\/election\/Candidate.html", "name" : "o1.election.Candidate"}, {"class" : "o1\/election\/District.html", "name" : "o1.election.District"}, {"object" : "o1\/election\/ElectionTest$.html", "name" : "o1.election.ElectionTest"}]};

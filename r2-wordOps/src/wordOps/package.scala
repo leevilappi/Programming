@@ -35,7 +35,16 @@ package object wordOps {
   
 
   def reverse(w: Short): Short = {
-    (~w).toShort
+    var b: Int = 0
+    var x = w.toInt
+    
+    for (i <- 0 until 16){
+      b <<= 1
+      b |= (x & 1)
+      x >>= 1
+    }
+    
+    b.toShort
   }
     
   /*
@@ -53,7 +62,10 @@ package object wordOps {
    * 
    */
 
-  def leftRotate(w: Long, k: Int): Long = ???
+  def leftRotate(w: Long, k: Int): Long = {
+    val change = k%64
+   (w << change) | (w >>> (64 - change) )
+  }
 
 }
 

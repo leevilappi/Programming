@@ -1,1 +1,0 @@
-Index.PACKAGES = {"o1" : [], "o1.counter" : [{"class" : "o1\/counter\/Counter.html", "name" : "o1.counter.Counter"}], "o1.luokkia" : [{"class" : "o1\/luokkia\/Tyontekija.html", "name" : "o1.luokkia.Tyontekija"}], "o1.soda" : [{"class" : "o1\/soda\/VendingMachine.html", "name" : "o1.soda.VendingMachine"}]};
