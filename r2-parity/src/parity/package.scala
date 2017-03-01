@@ -87,22 +87,24 @@ package object parity {
 
   def extend(p: Long): Long = {
       var y: Long = p
+      var parity: Long = 0
       
-        y = y ^ (y >> 32)
-        y = y ^ (y >> 16)
-        y = y ^ (y >> 8)
-        y = y ^ (y >> 4)
-        y = y ^ (y >> 2)
-        y = y ^ (y >> 1)
-        
-        if ((y & 1) != 0) {
-          y
-        }else {
-          (y ^128)
-        }
-     
-    
+      while(y != 0){
+        parity = parity ^ y
+        y >>= 1
+      }
+      
+      var parBit = (parity & 0x1)
+      
+      if (parBit == 1){
+        p | (0x8000000000000000L)
+      } else {
+        p & ~(0x8000000000000000L)
+      }
+            
+      
   }
+     
   
   /*
    * Task 2:
@@ -118,7 +120,23 @@ package object parity {
    *
    */
 
-  def ok(x: Long): Boolean = ???
+  def ok(x: Long): Boolean = {
+     var parBit1 = (x >> 63)&1
+     var y: Long = x << 1
+     
+      var parity: Long = 0
+      
+      while(y != 0){
+        parity = parity ^ y
+        y >>= 1
+      }
+      
+      var parBit2 = (parity & 0x1)
+     
+     parBit1 == parBit2
+     
+     
+  }
   
 }
 
