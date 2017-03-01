@@ -85,7 +85,24 @@ package object parity {
    *
    */
 
-  def extend(p: Long): Long = ???
+  def extend(p: Long): Long = {
+      var y: Long = p
+      
+        y = y ^ (y >> 32)
+        y = y ^ (y >> 16)
+        y = y ^ (y >> 8)
+        y = y ^ (y >> 4)
+        y = y ^ (y >> 2)
+        y = y ^ (y >> 1)
+        
+        if ((y & 1) != 0) {
+          y
+        }else {
+          (y ^128)
+        }
+     
+    
+  }
   
   /*
    * Task 2:
