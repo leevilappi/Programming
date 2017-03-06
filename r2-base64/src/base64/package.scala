@@ -72,12 +72,11 @@ package object base64 {
    */
   def to24Bits(p: Int, q: Int, r: Int): Int = {
     
-    var base = 125
-    var a = p & 0xFF
-    var b = q & 0xFF
-    var c = r & 0xFF
+    var a = (p & 0xFF)
+    var b = (q & 0xFF)
+    var c = (r & 0xFF)
     
-    (a << 16 | b << 8 | c << 0 )
+    (a << 16) + (b << 8) + c
   
   }
   
@@ -96,7 +95,16 @@ package object base64 {
    * Int in each case): r(0) == X, r(1) == Y, r(2) == Z, and r(3) == W.
    *
    */
-  def to6BitWords(w: Int): Array[Int] = ???
+  def to6BitWords(w: Int): Array[Int] = {
+    var mask = 63
+    var x = (w >> 18) & 63
+    var y = (w >> 12)  & 63
+    var z = (w >> 6) & 63
+    var p = w & 63
+    
+    Array(x,y,z,p)
+    
+  }
   
   /* 
    * Task 3: 
@@ -116,9 +124,12 @@ package object base64 {
    */
   def restrictedEncode(b: Array[Byte]): String = {
     require(b.length % 3 == 0)
-    // ... your solution starts here ...
-    ???
-    // ... and ends here ...
+   
+    var bgroup =  b.grouped(3).toArray
+                   .map(x => to6BitWords( to24Bits(x(0), x(1), x(2) )))
+                   .flatMap { x => x.map(B64(_)) }
+    
+    new String (bgroup)  
   }
   
   /* 
@@ -128,7 +139,14 @@ package object base64 {
    * a multiple of 3.
    *
    */
-  def encode(b: Array[Byte]): String = ???
-  
+  def encode(b: Array[Byte]): String = {
+   if (b.length % 3 == 0){
+     restrictedEncode(b)
+   }else if(b.length % 3 == 1){
+     restrictedEncode(b :+ 0.toByte :+ 0.toByte).dropRight(2) + "=="
+   }else{
+     restrictedEncode(b :+ 0.toByte).dropRight(1) + "="
+   }
+  }
 }
 

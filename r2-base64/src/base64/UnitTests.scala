@@ -27,7 +27,7 @@ class UnitTests {
     assertEquals(0xFFFFFF, to24Bits(0xFF, 0xFF, 0xFF))
     /* The following test checks that you only take into account
      * the 8 least significant bits of each argument. */
-    assertEquals(0x118800, to24Bits(0xffffff11, 0xffffff11, 0xffffff00))
+    assertEquals(0x118800, to24Bits(0xffffff11, 0xffffff88, 0xffffff00))
   }
 
   /** Unit test for the to6BitWords method. */
