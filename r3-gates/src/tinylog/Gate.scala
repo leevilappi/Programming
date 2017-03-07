@@ -74,36 +74,36 @@ class InputElement() extends Gate() {
   var v = false // default value is false
   def set(s: Boolean) = { v = s }
   def value = v
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = 0
+  def support: Set[Gate] = Set(this)
 }
 
 /** A "not" gate */
 class NotGate(in: Gate) extends Gate() {
   def value = !in.value
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = in.depth + 1
+  def support: Set[Gate] = Set(this, in)
 }
 
 /** An "or" gate */
 class OrGate(in1: Gate, in2: Gate) extends Gate() {
   def value = in1.value || in2.value
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = in1.depth + in2.depth + 1
+  def support: Set[Gate] = Set(this, in1, in2)
 }
 
 /** An "and" gate */
 class AndGate(in1: Gate, in2: Gate) extends Gate() {
   def value = in1.value && in2.value
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = in1.depth + in2.depth + 1
+  def support: Set[Gate] = Set(this, in1, in2)
 }
 
 /** An "exclusive-or" gate */
 class XorGate(in1: Gate, in2: Gate) extends Gate() {
   def value = if (in1.value != in2.value) true else false
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = in1.depth + in2.depth + 1
+  def support: Set[Gate] = Set(this, in1, in2)
 }
 
 /** A "majority-of-three" gate.
@@ -111,14 +111,14 @@ class XorGate(in1: Gate, in2: Gate) extends Gate() {
  *              in1, in2, and in3 evaluate to true. */
 class MajorityGate(in1: Gate, in2: Gate, in3: Gate) extends Gate() {
   def value = (in1.&&(in2)).||(in1.&&(in3)).||(in2.&&(in3)).value 
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = 3
+  def support: Set[Gate] = Set(this, in1, in2, in3)
 }
 
 /** Constant gates, always fixed to some value */
 class ConstantGate(v: Boolean) extends Gate() {
   def value = v
-  def depth: Int = ???
-  def support: Set[Gate] = ???
+  def depth: Int = 0
+  def support: Set[Gate] = Set(this)
 }
 
