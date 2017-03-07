@@ -82,28 +82,28 @@ class InputElement() extends Gate() {
 class NotGate(in: Gate) extends Gate() {
   def value = !in.value
   def depth: Int = in.depth + 1
-  def support: Set[Gate] = Set(this, in)
+  def support: Set[Gate] = Set(this) ++ in.support
 }
 
 /** An "or" gate */
 class OrGate(in1: Gate, in2: Gate) extends Gate() {
   def value = in1.value || in2.value
   def depth: Int = in1.depth + in2.depth + 1
-  def support: Set[Gate] = Set(this, in1, in2)
+  def support: Set[Gate] = Set(this) ++ in1.support ++ in2.support
 }
 
 /** An "and" gate */
 class AndGate(in1: Gate, in2: Gate) extends Gate() {
   def value = in1.value && in2.value
   def depth: Int = in1.depth + in2.depth + 1
-  def support: Set[Gate] = Set(this, in1, in2)
+  def support: Set[Gate] = Set(this) ++ in1.support ++ in2.support
 }
 
 /** An "exclusive-or" gate */
 class XorGate(in1: Gate, in2: Gate) extends Gate() {
   def value = if (in1.value != in2.value) true else false
   def depth: Int = in1.depth + in2.depth + 1
-  def support: Set[Gate] = Set(this, in1, in2)
+  def support: Set[Gate] = Set(this) ++ in1.support ++ in2.support
 }
 
 /** A "majority-of-three" gate.
@@ -112,7 +112,7 @@ class XorGate(in1: Gate, in2: Gate) extends Gate() {
 class MajorityGate(in1: Gate, in2: Gate, in3: Gate) extends Gate() {
   def value = (in1.&&(in2)).||(in1.&&(in3)).||(in2.&&(in3)).value 
   def depth: Int = 3
-  def support: Set[Gate] = Set(this, in1, in2, in3)
+  def support: Set[Gate] = Set(this) ++ in1.support ++ in2.support ++ in3.support
 }
 
 /** Constant gates, always fixed to some value */
