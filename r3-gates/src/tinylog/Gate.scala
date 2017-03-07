@@ -56,7 +56,7 @@ abstract class Gate() {
    *   Later in the course we will find a more elegant way for doing the same
    *   by using 'case classes'.
    * */
-  def inputElementSupport: Set[InputElement] = Set(support.asInstanceOf[InputElement])
+  def inputElementSupport: Set[InputElement] = support.collect{case a: InputElement => a}
 }
 
 /**
