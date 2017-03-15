@@ -73,7 +73,16 @@ object factory {
    * the output gate (first gate in the state bus) instead of the full state. 
    */
   def buildOscillatorPeriod4(host: Circuit): Gate = { 
-    ???
+     val state = host.inputs(4)
+     
+    state(0).buildFeedback(state(1))
+    state(1).buildFeedback(state(2))
+    state(2).buildFeedback(state(3))
+    state(3).buildFeedback(state(0))
+    
+    state(0).set(true)
+    
+    state(0)
   }
   
   /**
@@ -81,8 +90,16 @@ object factory {
    */
   def buildOscillator(host: Circuit, period: Int): Gate = {
     require(period > 0, "Period must be a positive integer.")
-
-    ???
+    
+    val state = host.inputs(period)
+    
+    for (i <- 0 until period-1) {
+      state(i).buildFeedback(state(i+1))
+    }
+    state(period-1).buildFeedback(state(0))    
+    state(0).set(true)
+    
+    state(0)
   }
 }
 
