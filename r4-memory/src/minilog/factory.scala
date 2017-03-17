@@ -74,9 +74,16 @@ object factory {
   def buildOneWordMemory(readEnable: Gate, writeEnable: Gate, data: Bus): Bus = {
     require(data.length > 0, "Data bus must have positive width.")
     
-    var a = readEnable.host.falses(data.length)
+    var store = readEnable.host.inputs(data.length)
     
-    ???
+//    buildTwoBusSelector(in0: Bus, in1: Bus, sel: Gate)
+    
+    var y = buildTwoBusSelector(store, data, writeEnable)
+    
+    store.buildFeedback(y)
+    
+    buildTwoBusSelector(readEnable.host.falses(data.length), store, readEnable)
+    
   }
   
   /**
@@ -124,7 +131,17 @@ object factory {
   def buildMemory(readEnable: Gate, writeEnable: Gate, address: Bus, data: Bus): Bus = {
     require(address.length > 0, "Address bus must have positive width.")
     require(data.length > 0, "Data bus must have positive width.")
-    ???
+    
+    var decodedAddress = buildDecoder(address)
+    
+    var busSeq = Seq[Bus]()
+    
+    for(i <- 0 until decodedAddress.length){
+      busSeq = busSeq :+ buildOneWordMemory(readEnable, decodedAddress(i)&& writeEnable, data)
+    }
+    
+    buildBusSelector(busSeq, decodedAddress)
+    
   }
 }
 

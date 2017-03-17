@@ -400,7 +400,6 @@ object factory {
     def multiply(a:Gate, b:Bus)={
       b.map(_ && a)
     }
-  
     
     var row = multiply(bus1(0), bus2) ++ Bus.falses(bus1.length)
     
