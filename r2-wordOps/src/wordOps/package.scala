@@ -40,7 +40,7 @@ package object wordOps {
     
     for (i <- 0 until 16){
       b <<= 1
-      b |= (x & 1)
+      b = b | (x & 1)
       x >>= 1
     }
     

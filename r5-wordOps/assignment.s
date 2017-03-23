@@ -16,32 +16,51 @@
 # Here is some wrapper code to test your solution:
         
          mov     $0, 62361       # load test input to $0
-      	 mov $5, 0
- 		 mov $1, 0
-		 mov $2, 0
-		 mov $3, $0
-		
-		 @loop:
-			 cmp $1, 15
-			 beq >done
-			 add $1, $1, 1
-			 
-			 lsl $2, $2,1
-			 mov $4, 0
-			 and $4, $4,1
-			 ior $2, $2, $4
-			 lsr $3, $3, 1
-		
-		 jmp >loop
-		 
-		       @done:
-		 mov $5, $2
-		 hlt
+         
+      	 
 		  
 # Your solution starts here ...
 # ------------------------------------------
         
         nop                     # ready for your code over here
+        
+         mov $5, 0
+ 		 mov $1, 0
+		 mov $2, 0			#var b 
+		 mov $3, $0			#var x
+		 mov $4, 0
+		 
+		 
+		
+		 @loop:
+			 cmp $1, 16
+			 beq >done
+			 add $1, $1, 1	#loop counter +1
+			 
+			 lsl $2, $2,1	# b = b <<  1
+			 and $4, $3,1	# x & 1
+			 ior $2, $2,$4  # b = b | x
+			 add $6, $6,$4
+			 lsr $3, $3, 1	# x = x >> 1
+			 
+
+		
+		 jmp >loop
+		 
+
+		 
+		 @done:
+		 mov $5, $2
+		 
+		 	 mov $2, 0
+		 	 mov $4, 0
+		 	 lsr $2, $0, 15 
+		 	 ior $7, $7, $2
+		 	 lsl $1, $0, 1
+		 	 ior $7, $7, $1
+		 	 
+		 hlt
+        
 
 # ------------------------------------------
 # ... and ends here 
