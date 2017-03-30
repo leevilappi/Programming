@@ -15,7 +15,10 @@ package object frequencies {
    * and http://www.scala-lang.org/api/current/index.html#scala.collection.Map,
    * for instance, groupBy and mapValues may be useful.
    */
-  def frequencies[T](seq: Seq[T]): Map[T, Int] = ???
+  def frequencies[T](seq: Seq[T]): Map[T, Int] = {
+    seq.toVector.groupBy { x => x }
+       .mapValues(_.size)
+  }
     
   /**
    * Given a sequence seq of items of type T,
@@ -23,13 +26,21 @@ package object frequencies {
    * that occur i times in the sequence.
    * If no item occurs i times in the sequence, then the map must be undefined for that i.
    */
-  def freqToItems[T](seq: Seq[T]): Map[Int, Set[T]] = ???
+  def freqToItems[T](seq: Seq[T]): Map[Int, Set[T]] = frequencies(seq).groupBy(_._2)
+                                                                      .map(x => (x._1,  x._2.map(x => x._1).toSet))
+
   
   /**
    * Given a sequence seq of items of type T,
    * returns the set of all items that occur most frequently in the sequence.
    * If the sequence is empty, then (and only then) the resulting set should be empty.
    */
-  def mostFrequent[T](seq: Seq[T]): Set[T] = ???
+  def mostFrequent[T](seq: Seq[T]): Set[T] = {
+    if (!seq.isEmpty){
+      freqToItems(seq).maxBy(x => x._1)._2
+    }else {
+      Set()
+    }
+  }
 }
 
