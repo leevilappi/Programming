@@ -12,16 +12,37 @@ object Finder {
    * Must make at most ceil(log(tester.domain)*2)+1 calls to tester.contains.
    */
   def findOne[T](tester: Tester[T]): Option[T] = {
-    val set = tester.domain
-    
-    def inner(start: Int, end: Int) : Option[T] = {
-      if(tester.contains(set)){
-        
-      }
-    }
+      var domain = tester.domain
+   
     
       
-    ???
+    def finder(tester: Tester[T]): Option[T] = {
+      
+      if (domain.size == 1) {
+        Some(domain.head)  
+      } else {
+      
+        var splitted = domain.splitAt(domain.size / 2)
+        var leftDomain = splitted._1
+        var rightDomain = splitted._2
+        
+        if(tester.contains(leftDomain) ){
+          domain = leftDomain
+          finder(tester)
+        }else {
+          domain = rightDomain
+          finder(tester)
+        }
+      }
+    }
+   
+    if(domain.isEmpty){
+      None
+    }else{
+      finder(tester)
+    }
+      
+    
   }
  
   /**
@@ -31,6 +52,10 @@ object Finder {
    * Use binary search to implement this.
    * Must make at most k*ceil(log(tester.domain)*2)+1 calls to tester.contains.
    */
-  def findAll[T](tester: Tester[T]): Set[T] = ???
+  def findAll[T](tester: Tester[T]): Set[T] = {
+    
+    
+    ???
+  }
 }
 
